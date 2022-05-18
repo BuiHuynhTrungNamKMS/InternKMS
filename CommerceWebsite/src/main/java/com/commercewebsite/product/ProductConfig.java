@@ -9,7 +9,7 @@ import java.util.List;
 @Configuration
 public class ProductConfig {
     @Bean
-    CommandLineRunner commandLineRunner(ProductRepository repo){
+    CommandLineRunner createDefaultProduct(ProductRepository repo){
         return args -> {
             Product A = new Product(
                     "Cotton jersey T-shirt",
