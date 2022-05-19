@@ -1,6 +1,7 @@
 package com.commercewebsite.user;
 
 import com.commercewebsite.Auth.Role.Role;
+import com.commercewebsite.Whistlist.Whistlist;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -25,6 +26,8 @@ public class User {
     @Size(max = 20)
     private String username;
 
+    @OneToMany(mappedBy="user")
+    private Set<Whistlist> Whistlists = new HashSet<>();
     @NotBlank
     @Size(max = 50)
     @Email

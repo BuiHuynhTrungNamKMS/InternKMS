@@ -1,6 +1,10 @@
 package com.commercewebsite.product;
 
+import com.commercewebsite.Item.Item;
+
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table
@@ -22,6 +26,9 @@ public class Product {
     private String color;
     private String describe;
 
+    @OneToMany(mappedBy="product")
+    private Set<Item> items = new HashSet<>();
+
     public Product(Long id, String name, String type, int price, String color, String describe) {
         this.id = id;
         this.name = name;
@@ -40,6 +47,31 @@ public class Product {
         this.price = price;
         this.color = color;
         this.describe = describe;
+    }
+
+    public Product(String name, String type, Integer price, String color, String describe, Set<Item> items) {
+        this.name = name;
+        this.type = type;
+        this.price = price;
+        this.color = color;
+        this.describe = describe;
+        this.items = items;
+    }
+
+    public Product(Long id) {
+        this.id = id;
+    }
+
+    public Set<Item> getItems() {
+        return items;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
+    public void setItems(Set<Item> items) {
+        this.items = items;
     }
 
     public Long getId() {
