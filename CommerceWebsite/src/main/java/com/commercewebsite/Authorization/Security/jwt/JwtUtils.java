@@ -1,9 +1,9 @@
-package com.commercewebsite.Auth.Security.jwt;
+package com.commercewebsite.Authorization.Security.jwt;
 
 
 import java.util.Date;
 
-import com.commercewebsite.Auth.Security.service.UserDetailsImpl;
+import com.commercewebsite.Authorization.Security.service.UserDetailsImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;

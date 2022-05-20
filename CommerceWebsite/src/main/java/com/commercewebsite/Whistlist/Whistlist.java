@@ -28,6 +28,10 @@ public class Whistlist {
     public Whistlist() {
     }
 
+    public Whistlist(User user) {
+        this.user = user;
+    }
+
     public Whistlist(Long id, Set<Item> items) {
         this.id = id;
         this.items = items;

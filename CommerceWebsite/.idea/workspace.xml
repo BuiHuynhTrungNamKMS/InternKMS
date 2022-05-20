@@ -5,16 +5,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="166789eb-327f-4d09-a0a7-b55bf8f4dcb6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Cart/Cart.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Cart/CartController.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Authorization/Auth/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Message/ResponseMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Whistlist/WhistlistService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Auth/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Authorization/Auth/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Auth/Payload/Request/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Authorization/Payload/Request/LoginRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Auth/Payload/Request/SignupRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Authorization/Payload/Request/SignupRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Auth/Payload/Response/JwtResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Authorization/Payload/Response/JwtResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Auth/Payload/Response/MessageResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Authorization/Payload/Response/MessageResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Auth/Repository/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Authorization/Repository/RoleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Auth/Role/ERole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Authorization/Role/ERole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Auth/Role/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Authorization/Role/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Auth/Role/RoleConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Authorization/Role/RoleConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Auth/Security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Authorization/Security/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Auth/Security/jwt/AuthEntryPointJwt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Authorization/Security/jwt/AuthEntryPointJwt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Auth/Security/jwt/AuthTokenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Authorization/Security/jwt/AuthTokenFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Auth/Security/jwt/JwtUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Authorization/Security/jwt/JwtUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Auth/Security/service/UserDetailsImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Authorization/Security/service/UserDetailsImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Auth/Security/service/UserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Authorization/Security/service/UserDetailsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Auth/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Home/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/CommerceWebsiteApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Item/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Item/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Whistlist/Whistlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Whistlist/Whistlist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Whistlist/WhistlistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Whistlist/WhistlistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/user/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -38,9 +67,15 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false"
+    "WebServerToolWindowFactoryState": "false",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "spring.configuration.checksum": "0fbc562a45368fe59a4e0b583ec1d476"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -48,10 +83,15 @@
     ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.commercewebsite" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="CommerceWebsiteApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="CommerceWebsite" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.commercewebsite.CommerceWebsiteApplication" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.commercewebsite.Application" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -65,7 +105,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1653017633870</updated>
-      <workItem from="1653017639427" duration="989000" />
+      <workItem from="1653017639427" duration="4515000" />
+      <workItem from="1653030020238" duration="4469000" />
     </task>
     <servers />
   </component>

@@ -1,4 +1,4 @@
-package com.commercewebsite.Auth.Payload.Request;
+package com.commercewebsite.Authorization.Payload.Request;
 
 
 import java.util.Set;

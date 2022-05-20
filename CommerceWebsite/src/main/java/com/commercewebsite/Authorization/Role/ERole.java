@@ -1,4 +1,4 @@
-package com.commercewebsite.Auth.Role;
+package com.commercewebsite.Authorization.Role;
 
 public enum ERole {
     ROLE_USER,

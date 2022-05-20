@@ -1,6 +1,6 @@
 package com.commercewebsite.user;
 
-import com.commercewebsite.Auth.Role.Role;
+import com.commercewebsite.Authorization.Role.Role;
 import com.commercewebsite.Whistlist.Whistlist;
 
 import java.util.HashSet;

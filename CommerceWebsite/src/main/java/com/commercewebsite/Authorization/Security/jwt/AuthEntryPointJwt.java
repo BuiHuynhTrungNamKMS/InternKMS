@@ -1,4 +1,4 @@
-package com.commercewebsite.Auth.Security.jwt;
+package com.commercewebsite.Authorization.Security.jwt;
 
 
 import java.io.IOException;

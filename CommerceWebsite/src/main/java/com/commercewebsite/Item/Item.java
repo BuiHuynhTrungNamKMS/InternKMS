@@ -1,18 +1,12 @@
 package com.commercewebsite.Item;
 
-import com.commercewebsite.Auth.Role.Role;
 import com.commercewebsite.Whistlist.Whistlist;
 import com.commercewebsite.product.Product;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
-@Table
+@Table(indexes = @Index(name = "idx_whistlist_product",columnList = "whistlist_id, product_id"))
 public class Item {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)

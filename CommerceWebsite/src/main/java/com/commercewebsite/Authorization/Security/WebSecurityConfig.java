@@ -1,9 +1,9 @@
-package com.commercewebsite.Auth.Security;
+package com.commercewebsite.Authorization.Security;
 
 
-import com.commercewebsite.Auth.Security.jwt.AuthEntryPointJwt;
-import com.commercewebsite.Auth.Security.jwt.AuthTokenFilter;
-import com.commercewebsite.Auth.Security.service.UserDetailsServiceImpl;
+import com.commercewebsite.Authorization.Security.jwt.AuthEntryPointJwt;
+import com.commercewebsite.Authorization.Security.jwt.AuthTokenFilter;
+import com.commercewebsite.Authorization.Security.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,10 +21,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(
-        // securedEnabled = true,
-        // jsr250Enabled = true,
-        prePostEnabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     UserDetailsServiceImpl userDetailsService;

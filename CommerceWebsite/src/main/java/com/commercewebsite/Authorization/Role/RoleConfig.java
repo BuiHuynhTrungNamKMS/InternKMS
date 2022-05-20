@@ -1,9 +1,7 @@
-package com.commercewebsite.Auth.Role;
+package com.commercewebsite.Authorization.Role;
 
 
-import com.commercewebsite.Auth.Repository.RoleRepository;
-import com.commercewebsite.product.Product;
-import com.commercewebsite.product.ProductRepository;
+import com.commercewebsite.Authorization.Repository.RoleRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package com.commercewebsite.Auth.Security.service;
+package com.commercewebsite.Authorization.Security.service;
 
 import java.util.Collection;
 import java.util.List;

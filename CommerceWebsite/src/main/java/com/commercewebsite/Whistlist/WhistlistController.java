@@ -1,18 +1,16 @@
 package com.commercewebsite.Whistlist;
 
-import com.commercewebsite.Auth.Security.service.UserDetailsImpl;
+import com.commercewebsite.Authorization.Security.service.UserDetailsImpl;
 import com.commercewebsite.Item.ItemService;
+import com.commercewebsite.Message.ResponseMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
-
-@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api")
 public class WhistlistController {
-
+    ResponseMessage responseMessage;
     private final ItemService itemService;
-
     private final WhistlistRepository whistlistRepository;
     @Autowired
     public WhistlistController(ItemService itemService, WhistlistRepository whistlistRepository) {
@@ -22,10 +20,8 @@ public class WhistlistController {
 
     @GetMapping("/whistlist/add/{producId}/{quantity}")
     public String cart(@AuthenticationPrincipal UserDetailsImpl user, @PathVariable Long producId, @PathVariable Integer quantity) {
-        //user.getId()
-
         itemService.addNewItem(whistlistRepository.FindByMax(),producId,quantity);
-        return "Add successfully";
+        return responseMessage.ADD_SUCCESSFULLY.toString();
     }
 
 }

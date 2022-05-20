@@ -1,0 +1,12 @@
+package com.commercewebsite.Message;
+
+public enum ResponseMessage {
+    PUBLIC_CONTENT,
+    USER_CONTENT,
+    ADMIN_CONTENT,
+    ADD_SUCCESSFULLY,
+    REGISTER_SUCCESSFULLY,
+    ERROR_ROLE_IS_NOT_FOUND,
+    ERROR_EMAIL_IS_ALREADY_USED,
+    ERROR_USERNAME_IS_ALREADY_USED
+}

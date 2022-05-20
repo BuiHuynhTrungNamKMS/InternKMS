@@ -1,4 +1,4 @@
-package com.commercewebsite.Auth.Security.service;
+package com.commercewebsite.Authorization.Security.service;
 
 import com.commercewebsite.user.User;
 import com.commercewebsite.user.UserRepository;

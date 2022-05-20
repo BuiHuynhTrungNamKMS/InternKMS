@@ -1,4 +1,4 @@
-package com.commercewebsite.Auth.Payload.Response;
+package com.commercewebsite.Authorization.Payload.Response;
 
 
 import java.util.List;

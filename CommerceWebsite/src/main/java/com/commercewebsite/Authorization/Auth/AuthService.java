@@ -1,22 +1,16 @@
-package com.commercewebsite.Auth;
+package com.commercewebsite.Authorization.Auth;
 
-
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
-
-import javax.validation.Valid;
-
-import com.commercewebsite.Auth.Payload.Request.LoginRequest;
-import com.commercewebsite.Auth.Payload.Request.SignupRequest;
-import com.commercewebsite.Auth.Payload.Response.JwtResponse;
-import com.commercewebsite.Auth.Payload.Response.MessageResponse;
-import com.commercewebsite.Auth.Repository.RoleRepository;
-import com.commercewebsite.Auth.Role.ERole;
-import com.commercewebsite.Auth.Role.Role;
-import com.commercewebsite.Auth.Security.jwt.JwtUtils;
-import com.commercewebsite.Auth.Security.service.UserDetailsImpl;
+import com.commercewebsite.Authorization.Payload.Request.LoginRequest;
+import com.commercewebsite.Authorization.Payload.Request.SignupRequest;
+import com.commercewebsite.Authorization.Payload.Response.JwtResponse;
+import com.commercewebsite.Authorization.Payload.Response.MessageResponse;
+import com.commercewebsite.Authorization.Repository.RoleRepository;
+import com.commercewebsite.Authorization.Role.ERole;
+import com.commercewebsite.Authorization.Role.Role;
+import com.commercewebsite.Authorization.Security.jwt.JwtUtils;
+import com.commercewebsite.Authorization.Security.service.UserDetailsImpl;
+import com.commercewebsite.Message.ResponseMessage;
+import com.commercewebsite.Whistlist.WhistlistService;
 import com.commercewebsite.user.User;
 import com.commercewebsite.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,18 +20,19 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
+@Service
+public class AuthService {
 
-@CrossOrigin(origins = "*", maxAge = 3600)
-@RestController
-@RequestMapping("/api/auth")
-public class AuthController {
+    @Autowired
+    private final WhistlistService whistlistService;
+    ResponseMessage responseMessage;
     @Autowired
     AuthenticationManager authenticationManager;
 
@@ -53,9 +48,11 @@ public class AuthController {
     @Autowired
     JwtUtils jwtUtils;
 
-    @PostMapping("/signin")
-    public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
+    public AuthService(WhistlistService whistlistService) {
+        this.whistlistService = whistlistService;
+    }
 
+    public ResponseEntity<?> authenticateUser(LoginRequest loginRequest){
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
 
@@ -74,21 +71,19 @@ public class AuthController {
                 roles));
     }
 
-    @PostMapping("/signup")
-    public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
+    public ResponseEntity<?> registerUser(SignupRequest signUpRequest){
         if (userRepository.existsByUsername(signUpRequest.getUsername())) {
             return ResponseEntity
                     .badRequest()
-                    .body(new MessageResponse("Error: Username is already taken!"));
+                    .body(new MessageResponse(responseMessage.ERROR_USERNAME_IS_ALREADY_USED.toString()));
         }
 
         if (userRepository.existsByEmail(signUpRequest.getEmail())) {
             return ResponseEntity
                     .badRequest()
-                    .body(new MessageResponse("Error: Email is already in use!"));
+                    .body(new MessageResponse(responseMessage.ERROR_EMAIL_IS_ALREADY_USED.toString()));
         }
 
-        // Create new user's account
         User user = new User(signUpRequest.getUsername(),
                 signUpRequest.getEmail(),
                 encoder.encode(signUpRequest.getPassword()));
@@ -98,20 +93,20 @@ public class AuthController {
 
         if (strRoles == null) {
             Role userRole = roleRepository.findByName(ERole.ROLE_USER)
-                    .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                    .orElseThrow(() -> new RuntimeException(responseMessage.ERROR_ROLE_IS_NOT_FOUND.toString()));
             roles.add(userRole);
         } else {
             strRoles.forEach(role -> {
                 switch (role) {
                     case "admin":
                         Role adminRole = roleRepository.findByName(ERole.ROLE_ADMIN)
-                                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                                .orElseThrow(() -> new RuntimeException(responseMessage.ERROR_ROLE_IS_NOT_FOUND.toString()));
                         roles.add(adminRole);
 
                         break;
                     default:
                         Role userRole = roleRepository.findByName(ERole.ROLE_USER)
-                                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                                .orElseThrow(() -> new RuntimeException(responseMessage.ERROR_ROLE_IS_NOT_FOUND.toString()));
                         roles.add(userRole);
                 }
             });
@@ -119,7 +114,7 @@ public class AuthController {
 
         user.setRoles(roles);
         userRepository.save(user);
-
-        return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
+        whistlistService.addNewWhistlist(user);
+        return ResponseEntity.ok(new MessageResponse(responseMessage.REGISTER_SUCCESSFULLY.toString()));
     }
 }
