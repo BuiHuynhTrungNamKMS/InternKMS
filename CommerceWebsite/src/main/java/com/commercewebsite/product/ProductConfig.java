@@ -33,7 +33,7 @@ public class ProductConfig {
 
             Product C = new Product(
                     "Cotton jersey sweatshirt",
-                    "Shirt",
+                    "Dress",
                     1980,
                     "black",
                     "Paying homage to the city that created a fascination with the movie industry, Gucci Love Parade is a collection inspired by Hollywood's glamour and pop culture—mixing old Hollywood with new Hollywood.",

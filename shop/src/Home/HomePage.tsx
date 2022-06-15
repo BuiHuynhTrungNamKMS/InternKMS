@@ -4,21 +4,45 @@ const MEN = [
       id: 1,
       image: '/images/products/men/product1.jpg',
       name: 'Mens T-Shirt',
+      type: "",
+      price: 0,
+      color: "",
+      describe: "",
+      gender: ",",
+      items: []
     },
     {
       id: 2,
       image: '/images/products/men/product2.jpg',
       name: 'Slim Khaki T',
+      type: "",
+      price: 0,
+      color: "",
+      describe: "",
+      gender: ",",
+      items: []
     },
     {
       id: 3,
       image: '/images/products/men/product3.jpg',
       name: 'Nike Shoes',
+      type: "",
+      price: 0,
+      color: "",
+      describe: "",
+      gender: ",",
+      items: []
     },
     {
       id: 4,
       image: '/images/products/men/product4.jpg',
       name: 'W Watch',
+      type: "",
+      price: 0,
+      color: "",
+      describe: "",
+      gender: ",",
+      items: []
     },
   ];
   
@@ -27,21 +51,45 @@ const MEN = [
       id: 5,
       image: '/images/products/women/product1.jpg',
       name: 'V Neck Tassel Cape',
+      type: "",
+      price: 0,
+      color: "",
+      describe: "",
+      gender: ",",
+      items: []
     },
     {
       id: 6,
       image: '/images/products/women/product2.jpg',
       name: 'Printed Wrap Dress',
+      type: "",
+      price: 0,
+      color: "",
+      describe: "",
+      gender: ",",
+      items: []
     },
     {
       id: 7,
       image: '/images/products/women/product3.jpg',
       name: 'Blue Denim Dress',
+      type: "",
+      price: 0,
+      color: "",
+      describe: "",
+      gender: ",",
+      items: []
     },
     {
       id: 8,
       image: '/images/products/women/product4.jpg',
       name: 'High Waist Denim Skirt',
+      type: "",
+      price: 0,
+      color: "",
+      describe: "",
+      gender: ",",
+      items: []
     },
   ];
 

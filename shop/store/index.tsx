@@ -3,10 +3,12 @@ import { create } from "domain";
 import { createWrapper } from "next-redux-wrapper";
 import authSlice from "./auth-slice";
 import cartSlice from "./cart-slice";
+import filterSlice from "./filter-slice";
 
 const combinedReducers = combineReducers({
     authSlice,
     cartSlice,
+    filterSlice,
 })
 
 const store = configureStore({
