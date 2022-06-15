@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path="product")
+@RequestMapping(path="api/product")
 public class ProductController {
 
     private final ProductService productService;
@@ -34,8 +34,12 @@ public class ProductController {
         return productService.findById(id);
 
     }
-    @PostMapping
-    public void addNewProduct(@RequestBody Product product){
-        productService.addNewProduct(product);
+    @GetMapping("")
+    public List<Product> searchByGender(@RequestParam(name = "gender") String gender){
+        return productService.findByGender(gender);
     }
+//    @PostMapping
+//    public void addNewProduct(@RequestBody Product product){
+//        productService.addNewProduct(product);
+//    }
 }

@@ -28,6 +28,10 @@ public class ProductService {
         return productRepository.findByNameContainingIgnoreCase(name);
     }
 
+    public List<Product> findByGender(String gender) {
+        return productRepository.findByGender(gender);
+    }
+
     public List<Product> sortByPrice() {
         return productRepository.findByOrderByPriceAsc();
     }

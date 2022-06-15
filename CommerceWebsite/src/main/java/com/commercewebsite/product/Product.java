@@ -25,37 +25,44 @@ public class Product {
     private Integer price;
     private String color;
     private String describe;
-
+    private String gender;
+    private String image;
     @OneToMany(mappedBy="product")
     private Set<Item> items = new HashSet<>();
 
-    public Product(Long id, String name, String type, int price, String color, String describe) {
+    public Product(Long id, String name, String type, int price, String color, String describe, String image, String gender) {
         this.id = id;
         this.name = name;
         this.type = type;
         this.price = price;
         this.color = color;
         this.describe = describe;
+        this.image = image;
+        this.gender = gender;
     }
 
     public Product() {
     }
 
-    public Product(String name, String type, int price, String color, String describe) {
+    public Product(String name, String type, int price, String color, String describe, String image, String gender) {
         this.name = name;
         this.type = type;
         this.price = price;
         this.color = color;
         this.describe = describe;
+        this.image = image;
+        this.gender = gender;
     }
 
-    public Product(String name, String type, Integer price, String color, String describe, Set<Item> items) {
+    public Product(String name, String type, Integer price, String color, String describe, Set<Item> items, String image, String gender) {
         this.name = name;
         this.type = type;
         this.price = price;
         this.color = color;
         this.describe = describe;
         this.items = items;
+        this.image = image;
+        this.gender = gender;
     }
 
     public Product(Long id) {
@@ -68,6 +75,22 @@ public class Product {
 
     public void setPrice(Integer price) {
         this.price = price;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public void setItems(Set<Item> items) {
@@ -131,6 +154,9 @@ public class Product {
                 ", price=" + price +
                 ", color='" + color + '\'' +
                 ", describe='" + describe + '\'' +
+                ", gender='" + gender + '\'' +
+                ", image='" + image + '\'' +
+                ", items=" + items +
                 '}';
     }
 }
