@@ -37,7 +37,10 @@ const cartSlice = createSlice({
         for (let item of state.itemsList) {
             if(item.id === action.payload){
                 if(item.quantity === 1) state.itemsList = state.itemsList.filter((itemCart: CartProduct) => itemCart.id !== action.payload);
-                else item.quantity--;
+                else{
+                    item.quantity--;
+                    item.totalPrice -= item.price;
+                } 
 
                 state.totalPrice -= item.price;
 

@@ -27,3 +27,15 @@ Usrc/main/java/com/commercewebsite/Authorization/Security/service/UserDetailsImp
 Ssrc/main/java/com/commercewebsite/Authorization/Security/jwt/AuthEntryPointJwt.java,9\8\985e0c4ed8901e1ef1410a170960be11f5059203
 Å
 Qsrc/main/java/com/commercewebsite/Authorization/Security/jwt/AuthTokenFilter.java,d\2\d244ebe11cf11326ad65532da27a1c18a7a8b622
+
+Osrc/main/java/com/commercewebsite/Authorization/Security/WebSecurityConfig.java,5\b\5b1b9d21928801aa87e357bdbc980493c34896a0
+f
+6src/main/java/com/commercewebsite/product/Product.java,b\d\bdeb0cbf112ac90d1ef70277816d42245382e7ff
+p
+@src/main/java/com/commercewebsite/product/ProductController.java,7\1\71b419e2bcaaaee2e15dfd1296ce8d2e912d3dd0
+m
+=src/main/java/com/commercewebsite/product/ProductService.java,3\d\3d7e683b0241afc4179cfeca613368ac2b090886
+p
+@src/main/java/com/commercewebsite/product/ProductRepository.java,0\2\025108e4394dc14c43d3e448d0d6c15e24e57674
+l
+<src/main/java/com/commercewebsite/product/ProductConfig.java,8\2\82bc8673e2290e73b24239ce8c9fcf403f1a45ae

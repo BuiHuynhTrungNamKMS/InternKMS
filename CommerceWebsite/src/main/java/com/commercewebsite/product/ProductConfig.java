@@ -59,7 +59,16 @@ public class ProductConfig {
                     "https://dfi0jv14tzjw0.cloudfront.net/magento/media/catalog/product/z/y/zyllie-la06-1.jpg",
                     "female"
             );
-            repo.saveAll(List.of(A,B,C,D,E));
+            Product F = new Product(
+                    "501 Skinny Jeans",
+                    "Jean",
+                    108,
+                    "Blue",
+                    "These timeless Levi’s 501 jeans are reinterpreted with a formfitting skinny leg and a go-with-anything faded wash",
+                    "https://m.media-amazon.com/images/G/01/Shopbop/p/prod/products/leviv/leviv20600183f6/leviv20600183f6_q2_2-1._QL90_.jpg",
+                    "female"
+            );
+            repo.saveAll(List.of(A,B,C,D,E,F));
         };
     }
 }
