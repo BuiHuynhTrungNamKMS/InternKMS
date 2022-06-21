@@ -1,102 +1,101 @@
-import ItemList from "../Product/ItemList";
+import ItemList from '../Product/ItemList';
 const MEN = [
-    {
-      id: 1,
-      image: '/images/products/men/product1.jpg',
-      name: 'Mens T-Shirt',
-      type: "",
-      price: 0,
-      color: "",
-      describe: "",
-      gender: ",",
-      items: []
-    },
-    {
-      id: 2,
-      image: '/images/products/men/product2.jpg',
-      name: 'Slim Khaki T',
-      type: "",
-      price: 0,
-      color: "",
-      describe: "",
-      gender: ",",
-      items: []
-    },
-    {
-      id: 3,
-      image: '/images/products/men/product3.jpg',
-      name: 'Nike Shoes',
-      type: "",
-      price: 0,
-      color: "",
-      describe: "",
-      gender: ",",
-      items: []
-    },
-    {
-      id: 4,
-      image: '/images/products/men/product4.jpg',
-      name: 'W Watch',
-      type: "",
-      price: 0,
-      color: "",
-      describe: "",
-      gender: ",",
-      items: []
-    },
-  ];
-  
-  const WOMEN = [
-    {
-      id: 5,
-      image: '/images/products/women/product1.jpg',
-      name: 'V Neck Tassel Cape',
-      type: "",
-      price: 0,
-      color: "",
-      describe: "",
-      gender: ",",
-      items: []
-    },
-    {
-      id: 6,
-      image: '/images/products/women/product2.jpg',
-      name: 'Printed Wrap Dress',
-      type: "",
-      price: 0,
-      color: "",
-      describe: "",
-      gender: ",",
-      items: []
-    },
-    {
-      id: 7,
-      image: '/images/products/women/product3.jpg',
-      name: 'Blue Denim Dress',
-      type: "",
-      price: 0,
-      color: "",
-      describe: "",
-      gender: ",",
-      items: []
-    },
-    {
-      id: 8,
-      image: '/images/products/women/product4.jpg',
-      name: 'High Waist Denim Skirt',
-      type: "",
-      price: 0,
-      color: "",
-      describe: "",
-      gender: ",",
-      items: []
-    },
-  ];
+  {
+    id: 1,
+    image: '/images/products/men/product1.jpg',
+    name: 'Mens T-Shirt',
+    type: '',
+    price: 0,
+    color: '',
+    describe: '',
+    gender: ',',
+    items: [],
+  },
+  {
+    id: 2,
+    image: '/images/products/men/product2.jpg',
+    name: 'Slim Khaki T',
+    type: '',
+    price: 0,
+    color: '',
+    describe: '',
+    gender: ',',
+    items: [],
+  },
+  {
+    id: 3,
+    image: '/images/products/men/product3.jpg',
+    name: 'Nike Shoes',
+    type: '',
+    price: 0,
+    color: '',
+    describe: '',
+    gender: ',',
+    items: [],
+  },
+  {
+    id: 4,
+    image: '/images/products/men/product4.jpg',
+    name: 'W Watch',
+    type: '',
+    price: 0,
+    color: '',
+    describe: '',
+    gender: ',',
+    items: [],
+  },
+];
 
+const WOMEN = [
+  {
+    id: 5,
+    image: '/images/products/women/product1.jpg',
+    name: 'V Neck Tassel Cape',
+    type: '',
+    price: 0,
+    color: '',
+    describe: '',
+    gender: ',',
+    items: [],
+  },
+  {
+    id: 6,
+    image: '/images/products/women/product2.jpg',
+    name: 'Printed Wrap Dress',
+    type: '',
+    price: 0,
+    color: '',
+    describe: '',
+    gender: ',',
+    items: [],
+  },
+  {
+    id: 7,
+    image: '/images/products/women/product3.jpg',
+    name: 'Blue Denim Dress',
+    type: '',
+    price: 0,
+    color: '',
+    describe: '',
+    gender: ',',
+    items: [],
+  },
+  {
+    id: 8,
+    image: '/images/products/women/product4.jpg',
+    name: 'High Waist Denim Skirt',
+    type: '',
+    price: 0,
+    color: '',
+    describe: '',
+    gender: ',',
+    items: [],
+  },
+];
 
 const HomePage: React.FC = () => {
-    return (
-        <>
+  return (
+    <>
       <div className="my-20">
         <div className="flex flex-row justify-between my-5">
           <h2 className="text-3xl">Men Collection</h2>
@@ -118,7 +117,7 @@ const HomePage: React.FC = () => {
             </svg>
           </a>
         </div>
-        <ItemList products = {MEN}/>
+        <ItemList products={MEN} />
       </div>{' '}
       <div className="my-20">
         <div className="flex flex-row justify-between my-5">
@@ -141,7 +140,7 @@ const HomePage: React.FC = () => {
             </svg>
           </a>
         </div>
-        <ItemList products = {WOMEN}/>
+        <ItemList products={WOMEN} />
       </div>
       <div className="rounded-lg shadow-lg my-20 flex flex-row">
         <div className="lg:w-3/5 w-full bg-gradient-to-r from-black to-purple-900 lg:from-black lg:via-purple-900 lg:to-transparent rounded-lg text-gray-100 p-12">
@@ -174,6 +173,6 @@ const HomePage: React.FC = () => {
         </div>
       </div>
     </>
-    );
-}
+  );
+};
 export default HomePage;

@@ -4,7 +4,6 @@ import NavBar from '../src/Common/NavBar';
 import Footer from '../src/Common/Footer';
 import { wrapper } from '../store';
 import { useSelector } from 'react-redux';
-import { AuthState } from '../src/Model/Module';
 import { RootState } from '../store';
 import Login from '../src/Login/Login';
 
@@ -17,8 +16,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <NavBar />
-      {!isLoggedIn && <Login />}
-      {isLoggedIn && <Component {...pageProps} />}
+      {/* {!isLoggedIn && <Login />} */}
+      {/* {isLoggedIn && <Component {...pageProps} />} */}
+      <Component {...pageProps} />
       <Footer />
     </>
   );

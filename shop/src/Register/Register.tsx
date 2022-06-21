@@ -2,24 +2,16 @@ import { useDispatch } from 'react-redux';
 import { authActions } from '../../store/auth-slice';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { RootState } from '../../store';
-import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
+
 const Login: React.FC = () => {
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const accessToken = useSelector(
-    (state: RootState) => state.authSlice.accessToken
-  );
-  const tokenType = useSelector(
-    (state: RootState) => state.authSlice.tokenType
-  );
-  const nameee = useSelector(
-    (state: RootState) => state.authSlice.username
-  );
-  console.log(nameee)
+  const getUsername = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const username = event.target.value;
+    setUsername(username);
+  };
   const getEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     const email = event.target.value;
     setEmail(email);
@@ -28,49 +20,33 @@ const Login: React.FC = () => {
     const password = event.target.value;
     setPassword(password);
   };
-  const router = useRouter()
+  const router = useRouter();
   const dispatch = useDispatch();
   const submitForm = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    fetch('http://localhost:8080/api/auth/signin', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          username: email,
-          password: password,
-        }),
-      }).then((response) => {
-        if (!response.ok) throw new Error("Incorrect username or password");
+    fetch('http://localhost:8080/api/auth/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        username: username,
+        email: email,
+        password: password,
+        role: ['user'],
+      }),
+    })
+      .then((response) => {
+        if (!response.ok) throw new Error('Email or Username is already exist');
         else return response.json();
       })
       .then((data) => {
         dispatch(authActions.login(data));
-        router.push("/")
+        router.push('/login');
       })
       .catch((error) => {
         console.log('error: ' + error);
       });
   };
 
-  const buttonHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    fetch('http://localhost:8080/api/home/admin',{
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: tokenType + ' ' + accessToken,
-      },
-    })
-      .then((response) => {
-        if (!response.ok) throw new Error("ajkshdkajsd");
-        else return "Admin";
-      })
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((error) => {
-        console.log('error: ' + error);
-      });
-  };
   return (
     <section className="h-screen">
       <div className="px-6 h-full text-gray-800">
@@ -147,10 +123,20 @@ const Login: React.FC = () => {
               <div className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
                 <p className="text-center font-semibold mx-4 mb-0">Or</p>
               </div>
-              {/* Email input */}
+              {/* Username input */}
               <div className="mb-6">
                 <input
                   type="text"
+                  className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                  id="exampleFormControlInput2"
+                  placeholder="User name"
+                  onChange={getUsername}
+                />
+              </div>
+              {/* Email input */}
+              <div className="mb-6">
+                <input
+                  type="email"
                   className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                   id="exampleFormControlInput2"
                   placeholder="Email address"
@@ -167,45 +153,13 @@ const Login: React.FC = () => {
                   onChange={getPassword}
                 />
               </div>
-              <div className="flex justify-between items-center mb-6">
-                <div className="form-group form-check">
-                  <input
-                    type="checkbox"
-                    className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                    id="exampleCheck2"
-                  />
-                  <label
-                    className="form-check-label inline-block text-gray-800"
-                    htmlFor="exampleCheck2"
-                  >
-                    Remember me
-                  </label>
-                </div>
-                <a href="#!" className="text-gray-800">
-                  Forgot password?
-                </a>
-              </div>
               <div className="text-center lg:text-left">
                 <button
                   type="submit"
                   className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
                 >
-                  Login
+                  Register
                 </button>
-                <button
-                  onClick={buttonHandler}
-                  className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-                >
-                  Test
-                </button>
-                <p className="text-sm font-semibold mt-2 pt-1 mb-0">
-                  Do not have an account?
-                  <Link href="/register">
-                    <a className="text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out">
-                      Register
-                    </a>
-                  </Link>
-                </p>
               </div>
             </form>
           </div>

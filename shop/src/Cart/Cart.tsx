@@ -1,13 +1,12 @@
 import { Fragment, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Dialog, Transition } from '@headlessui/react';
 import { XIcon } from '@heroicons/react/outline';
-import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { cartActions } from '../../store/cart-slice';
 import { CartProduct } from '../Model/Module';
 
 const Cart: React.FC = () => {
-
   const showCart: boolean = useSelector(
     (state: RootState) => state.cartSlice.showCart
   );
@@ -19,11 +18,6 @@ const Cart: React.FC = () => {
   );
   const dispatch = useDispatch();
 
-  // const closeCart = (event: React.MouseEvent<HTMLButtonElement>) => {
-  //   event.preventDefault();
-
-  //   dispatch(cartActions.setShowCart(false));
-  // };
   return (
     <Transition.Root show={showCart} as={Fragment}>
       <Dialog

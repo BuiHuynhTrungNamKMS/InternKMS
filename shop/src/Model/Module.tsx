@@ -30,10 +30,6 @@ export interface DetailProductProps{
     product: Product;
 }
 
-export interface AuthState {
-    isLoggedIn: boolean;
-  }
-
   export interface CartProduct {
     id: number;
     price: number;
@@ -48,4 +44,13 @@ export interface CartState {
     totalQuantity: number,
     totalPrice: number,
     showCart: boolean,
+  }
+
+  export interface AuthState {
+    isLoggedIn: boolean;
+    id: number;
+    username: string;
+    email: string;
+    accessToken: string;
+    tokenType: string;
   }

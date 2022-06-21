@@ -68,6 +68,7 @@ const NavBar: React.FC = () => {
             Cart ({quantity})
           </button>
         </div>
+        
       </div>
     </>
     );

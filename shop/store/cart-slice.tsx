@@ -2,6 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 import { CartState } from "../src/Model/Module";
 import { Product } from "../src/Model/Module";
 import { CartProduct } from "../src/Model/Module";
+//../../../../ = @abc
+// import from @abc/index
+
 const cartSlice = createSlice({
   name: "cart",
   initialState: {

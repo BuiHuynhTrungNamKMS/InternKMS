@@ -9,16 +9,7 @@ import { RootState } from '../../store';
 import { useState } from 'react';
 import { Product } from '../../src/Model/Module';
 import { filterActions } from '../../store/filter-slice';
-// export const getServerSideProps: GetServerSideProps = async () => {
-//   const res = await fetch('http://localhost:8080/api/product/all')
-//   const products = await res.json()
-
-//   return {
-//     props: {
-//       products
-//     }
-//   }
-// }
+import { useEffect } from 'react';
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const res = await fetch('http://localhost:8080/api/product/all');
@@ -39,54 +30,3 @@ export default function Home({ products }: ProductListProps) {
     </div>
   );
 }
-
-// const products = [
-//     {
-//       id: 1,
-//       name: 'Earthen Bottle',
-//       price: '$48',
-//       image: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
-//     },
-//     {
-//       id: 2,
-//       name: 'Nomad Tumbler',
-//       price: '$35',
-//       image: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
-//     },
-//     {
-//       id: 3,
-//       name: 'Focus Paper Refill',
-//       price: '$89',
-//       image: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
-//     },
-//     {
-//       id: 4,
-//       name: 'Machined Mechanical Pencil',
-//       price: '$35',
-//       image: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
-//     },
-//     {
-//         id: 5,
-//         name: 'Earthen Bottle',
-//         price: '$48',
-//         image: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
-//       },
-//       {
-//         id: 6,
-//         name: 'Nomad Tumbler',
-//         price: '$35',
-//         image: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
-//       },
-//       {
-//         id: 7,
-//         name: 'Focus Paper Refill',
-//         price: '$89',
-//         image: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
-//       },
-//       {
-//         id: 8,
-//         name: 'Machined Mechanical Pencil',
-//         price: '$35',
-//         image: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
-//       },
-//   ]

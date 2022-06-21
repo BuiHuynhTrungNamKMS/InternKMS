@@ -5,13 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="166789eb-327f-4d09-a0a7-b55bf8f4dcb6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/ProductConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/ProductConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../shop/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../shop/src/Product/Filter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Product/Filter.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../shop/src/Product/ItemList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Product/ItemList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Authorization/Auth/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Authorization/Auth/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Authorization/Security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Authorization/Security/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/pages/products/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/pages/products/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Cart/Cart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Cart/Cart.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Home/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Home/HomePage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Login/Login.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../shop/store/cart-slice.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/store/cart-slice.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../shop/store/filter-slice.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/store/filter-slice.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +110,10 @@
       <workItem from="1655261917186" duration="3327000" />
       <workItem from="1655276287793" duration="3007000" />
       <workItem from="1655345946631" duration="2302000" />
+      <workItem from="1655362350911" duration="3621000" />
+      <workItem from="1655432540651" duration="2022000" />
+      <workItem from="1655779310678" duration="7983000" />
+      <workItem from="1655794111258" duration="3656000" />
     </task>
     <servers />
   </component>
