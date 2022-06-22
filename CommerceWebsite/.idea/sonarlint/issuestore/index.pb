@@ -52,6 +52,10 @@ Usrc/main/java/com/commercewebsite/Authorization/Payload/Response/MessageRespons
 Osrc/main/java/com/commercewebsite/Authorization/Security/WebSecurityConfig.java,5\b\5b1b9d21928801aa87e357bdbc980493c34896a0
 x
 Hsrc/main/java/com/commercewebsite/Authorization/Auth/AuthController.java,3\d\3de4e779bb88224c9ed9638334bf9073edfdb65f
+u
+Esrc/main/java/com/commercewebsite/Authorization/Auth/AuthService.java,b\6\b6ef62490c0ea3492bff507525f775dbe898baa9
+n
+>src/main/java/com/commercewebsite/Message/ResponseMessage.java,7\d\7d1ab1f220d30ad22e23f4f6cec82a17d1cd1ec1
 t
 Dsrc/main/java/com/commercewebsite/Authorization/Role/RoleConfig.java,f\c\fc019f56dbcbc42c117769d3c2127597e9ac4f2b
 n
@@ -64,9 +68,5 @@ Nsrc/main/java/com/commercewebsite/Authorization/Repository/RoleRepository.java
 Qsrc/main/java/com/commercewebsite/Authorization/Payload/Request/LoginRequest.java,a\2\a29f52ea23e78ca3078bd0314ee40470e17e409b
 ‚
 Rsrc/main/java/com/commercewebsite/Authorization/Payload/Request/SignupRequest.java,3\9\391af400a494190762ffa819a27d1f14e07dcb4d
-u
-Esrc/main/java/com/commercewebsite/Authorization/Auth/AuthService.java,b\6\b6ef62490c0ea3492bff507525f775dbe898baa9
-n
->src/main/java/com/commercewebsite/Message/ResponseMessage.java,7\d\7d1ab1f220d30ad22e23f4f6cec82a17d1cd1ec1
 j
 :src/main/java/com/commercewebsite/Home/HomeController.java,f\9\f9dc3e13827d66e7a04e616ef8683f1ecb1267e6

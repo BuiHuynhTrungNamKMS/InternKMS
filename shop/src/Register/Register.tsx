@@ -3,8 +3,14 @@ import { authActions } from '../../store/auth-slice';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-
-const Login: React.FC = () => {
+import Dialog from '../Dialog/Dialog'
+import { RootState } from '../../store';
+import { useSelector } from 'react-redux';
+import { dialogActions } from '../../store/dialogSlice';
+const Register: React.FC = () => {
+  const isShow = useSelector(
+    (state: RootState) => state.dialogSlice.isShow
+  );
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -39,15 +45,18 @@ const Login: React.FC = () => {
         else return response.json();
       })
       .then((data) => {
-        dispatch(authActions.login(data));
+        dispatch(dialogActions.changeMessage("Register successfully"))
+        dispatch(dialogActions.changeShow(true))
         router.push('/login');
       })
       .catch((error) => {
-        console.log('error: ' + error);
+        dispatch(dialogActions.changeMessage('Email or Username is already exist'))
+        dispatch(dialogActions.changeShow(true))
       });
   };
 
   return (
+    <> <Dialog/>
     <section className="h-screen">
       <div className="px-6 h-full text-gray-800">
         <div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
@@ -166,6 +175,7 @@ const Login: React.FC = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
-export default Login;
+export default Register;

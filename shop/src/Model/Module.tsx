@@ -54,3 +54,7 @@ export interface CartState {
     accessToken: string;
     tokenType: string;
   }
+
+  export interface DialogProps {
+    message: string,
+  }

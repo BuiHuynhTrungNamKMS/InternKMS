@@ -6,6 +6,8 @@ import { RootState } from '../../store';
 import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Dialog from '../Dialog/Dialog';
+import { dialogActions } from '../../store/dialogSlice';
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -45,10 +47,13 @@ const Login: React.FC = () => {
       })
       .then((data) => {
         dispatch(authActions.login(data));
+        dispatch(dialogActions.changeMessage("Login successfully"))
+        dispatch(dialogActions.changeShow(true))
         router.push("/")
       })
       .catch((error) => {
-        console.log('error: ' + error);
+        dispatch(dialogActions.changeMessage("Incorrect username or password"))
+        dispatch(dialogActions.changeShow(true))
       });
   };
 
@@ -72,6 +77,7 @@ const Login: React.FC = () => {
       });
   };
   return (
+    <><Dialog />
     <section className="h-screen">
       <div className="px-6 h-full text-gray-800">
         <div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
@@ -212,6 +218,7 @@ const Login: React.FC = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 export default Login;

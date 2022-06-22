@@ -15,11 +15,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     console.log(cartItems)
   return (
     <>
-      <NavBar />
+      <NavBar /> 
       {/* {!isLoggedIn && <Login />} */}
       {/* {isLoggedIn && <Component {...pageProps} />} */}
       <Component {...pageProps} />
-      <Footer />
+      <Footer /> 
     </>
   );
 }
