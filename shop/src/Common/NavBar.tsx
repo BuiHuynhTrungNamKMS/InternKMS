@@ -3,34 +3,52 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { cartActions } from "../../store/cart-slice";
 import Cart from "../Cart/Cart";
+import { useRouter } from "next/router";
+import { authActions } from "../../store/auth-slice";
 const NavBar: React.FC = () => {
   const quantity: number = useSelector((state:RootState)=> state.cartSlice.totalQuantity)
   const dispatch = useDispatch()
+  let message: string = "";
+  const isLoggedIn = useSelector(
+    (state: RootState) => state.authSlice.isLoggedIn
+  );
+  console.log(isLoggedIn)
+  if(isLoggedIn)  message = "Logout"
+  else message = "Login"
+    const router = useRouter()
+  const buttonHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    if(isLoggedIn === false)  router.push("/login")
+    else{
+      dispatch(authActions.logout());
+    }
+  }
+
   const openCart = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-
     dispatch(cartActions.setShowCart(true));
   };
     return (
         <>
         <Cart />
       <div
-        className="md:flex md:flex-row md:justify-between text-center text-sm sm:text-base"
+        className="md:flex md:flex-row md:justify-between text-center text-sm sm:text-base bg-gray-200 rounded-full h-full"
         style={{ margin: '10px'}}
       >
         <div className="flex flex-row justify-center">
           <Link href="/">
             <a>
-              <div className="bg-gradient-to-r from-blue-400 to-red-400 w-10 h-10 rounded-lg" />
+            <img src="https://cdn5.vectorstock.com/i/1000x1000/96/59/modern-beauty-and-beautiful-woman-logo-vector-26889659.jpg" className="mr-3 w-15 h-20 rounded-full" alt="Flowbite Logo" />
+              
             </a>
           </Link>
 
           <Link href="/">
-            <a className="text-3xl text-gray-600 ml-2">E-COMMERCE SHOP</a>
+            <a className="font-mono text-3xl text-pink-600 ml-2 italic">E-Commerce <br /> Shop</a>
           </Link>
         </div>
 
-        <div className="mt-2">
+        <div className="font-serif mt-2">
           <Link href="/">
             <a className="text-gray-600 hover:text-purple-600 p-4 px-3 sm:px-4">
               Home
@@ -46,9 +64,14 @@ const NavBar: React.FC = () => {
               About
             </a>
           </Link>
-
           <button
-            className="bg-purple-600 text-gray-50 hover:bg-purple-700 p-3 px-3 sm:px-5 rounded-full"
+            className="bg-red-600 text-gray-50 hover:bg-pink-700 p-3 px-3 sm:px-5 rounded-full mx-0.5"
+            onClick={buttonHandler}
+          >
+            {message}
+          </button>
+          <button
+            className="bg-purple-600 text-gray-50 hover:bg-purple-700 p-3 px-3 sm:px-5 rounded-full mx-0.5"
             onClick={openCart}
           >
             <svg

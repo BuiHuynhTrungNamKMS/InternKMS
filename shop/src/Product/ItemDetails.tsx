@@ -4,9 +4,16 @@ import ItemList from "./ItemList";
 import { DetailProductProps } from "../Model/Module";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
+import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
+import { RootState } from "../../store";
 const ItemDetails: React.FC<DetailProductProps> = props => {
     const {product} = props;
     const dispatch = useDispatch();
+    const router = useRouter();
+  const isLoggedIn = useSelector(
+    (state: RootState) => state.authSlice.isLoggedIn
+  );
     return (
         <>
         <section className="text-gray-700 body-font overflow-hidden bg-white">
@@ -166,7 +173,10 @@ const ItemDetails: React.FC<DetailProductProps> = props => {
           <a
             className="bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600 flex flex-row justify-center"
             href="#"
-            onClick={()=> dispatch(cartActions.addToCart(product))}
+            onClick={()=> {
+              if(isLoggedIn === true) dispatch(cartActions.addToCart(product))
+              else router.push("/login")
+            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

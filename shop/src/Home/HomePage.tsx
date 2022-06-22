@@ -98,7 +98,7 @@ const HomePage: React.FC = () => {
   return (
     <>
     <Dialog />
-      <div className="my-20">
+      <div className="my-20 font-serif text-violet-800">
         <div className="flex flex-row justify-between my-5">
           <h2 className="text-3xl">Men Collection</h2>
           <a href="#" className="flex flex-row text-lg hover:text-purple-700">
@@ -121,7 +121,7 @@ const HomePage: React.FC = () => {
         </div>
         <ItemList products={MEN} />
       </div>{' '}
-      <div className="my-20">
+      <div className="my-20 font-serif text-violet-800">
         <div className="flex flex-row justify-between my-5">
           <h2 className="text-3xl">Women Collection</h2>
           <a href="#" className="flex flex-row text-lg hover:text-purple-700">
