@@ -1,8 +1,10 @@
 import { ItemProps } from '../Model/Module';
 import Image from 'next/image';
+
 type Props = {
   product: ItemProps;
 };
+
 import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
 import { cartActions } from '../../store/cart-slice';

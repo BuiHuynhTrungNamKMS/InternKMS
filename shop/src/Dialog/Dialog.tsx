@@ -1,18 +1,13 @@
 import { useDispatch } from 'react-redux';
-import { authActions } from '../../store/auth-slice';
-import { useState } from 'react';
-import { useEffect } from 'react';
 import { RootState } from '../../store';
 import { useSelector } from 'react-redux';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
-import { DialogProps } from '../Model/Module';
 import { dialogActions } from '../../store/dialogSlice';
+
 const Dialog: React.FC = () => {
   const message = useSelector((state: RootState) => state.dialogSlice.message);
   const isShow = useSelector((state: RootState) => state.dialogSlice.isShow);
-  console.log(isShow);
   const dispatch = useDispatch();
+  
   return (
     <>
       {isShow && (

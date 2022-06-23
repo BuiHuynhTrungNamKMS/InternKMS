@@ -7,7 +7,6 @@
     <list default="true" id="166789eb-327f-4d09-a0a7-b55bf8f4dcb6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../shop/src/Home/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Home/HomePage.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,6 +107,7 @@
       <workItem from="1655794111258" duration="3656000" />
       <workItem from="1655865117443" duration="6708000" />
       <workItem from="1655882572100" duration="2855000" />
+      <workItem from="1655952426781" duration="1393000" />
     </task>
     <servers />
   </component>

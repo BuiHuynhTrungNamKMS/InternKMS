@@ -54,8 +54,7 @@ const Cart: React.FC = () => {
                     <div className="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
                       <div className="flex items-start justify-between">
                         <Dialog.Title className="text-lg font-medium text-gray-900">
-                          {' '}
-                          Shopping cart{' '}
+                          Shopping cart
                         </Dialog.Title>
                         <div className="ml-3 flex h-7 items-center">
                           <button
@@ -99,25 +98,34 @@ const Cart: React.FC = () => {
                                     </p>
                                   </div>
                                   <div className="flex flex-1 items-end justify-between text-sm">
-                                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" 
-                                      onClick={() => dispatch(cartActions.removeFromCart(product.id))}>
+                                    <button
+                                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+                                      onClick={() =>
+                                        dispatch(
+                                          cartActions.removeFromCart(product.id)
+                                        )
+                                      }
+                                    >
                                       -
                                     </button>
                                     <p className="text-gray-500">
                                       {product.quantity}
                                     </p>
-                                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-                                    onClick={() => dispatch(cartActions.addToCart(product))}>
+                                    <button
+                                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+                                      onClick={() =>
+                                        dispatch(cartActions.addToCart(product))
+                                      }
+                                    >
                                       +
                                     </button>
                                   </div>
                                   <div>
-                                  <div className="flex">
+                                    <div className="flex">
                                       <button
                                         type="button"
                                         className="font-medium text-indigo-600 hover:text-indigo-500"
-                                        onClick={() => dispatch(cartActions.removeAll(product.id))}
-                                      >
+                                        onClick={() =>dispatch(cartActions.removeAll(product.id))}>
                                         Remove
                                       </button>
                                     </div>

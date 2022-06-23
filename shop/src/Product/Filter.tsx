@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../store";
 import { filterActions } from "../../store/filter-slice";
+
 const Filter: React.FC = () => {
   const dispatch = useDispatch()
 
@@ -8,10 +8,12 @@ const Filter: React.FC = () => {
     const option = event.target.value;
     dispatch(filterActions.changeFilter(option))
   };
+
   const searchHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
     const searchKey = (event.target as HTMLInputElement).value
     dispatch(filterActions.changeSearchKey(searchKey))
   };
+  
   return (
     <>
     <div className="flex justify-center my-3">

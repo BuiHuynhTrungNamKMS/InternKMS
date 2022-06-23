@@ -1,22 +1,20 @@
-import { ProductProps } from "../Model/Module";
-import { Product } from "../Model/Module";
-import ItemList from "./ItemList";
-import { DetailProductProps } from "../Model/Module";
-import { useDispatch } from "react-redux";
-import { cartActions } from "../../store/cart-slice";
-import { useSelector } from "react-redux";
-import { useRouter } from "next/router";
-import { RootState } from "../../store";
-const ItemDetails: React.FC<DetailProductProps> = props => {
-    const {product} = props;
-    const dispatch = useDispatch();
-    const router = useRouter();
+import { DetailProductProps } from '../Model/Module';
+import { useDispatch } from 'react-redux';
+import { cartActions } from '../../store/cart-slice';
+import { useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
+import { RootState } from '../../store';
+
+const ItemDetails: React.FC<DetailProductProps> = (props) => {
+  const { product } = props;
+  const dispatch = useDispatch();
+  const router = useRouter();
   const isLoggedIn = useSelector(
     (state: RootState) => state.authSlice.isLoggedIn
   );
-    return (
-        <>
-        <section className="text-gray-700 body-font overflow-hidden bg-white">
+  return (
+    <>
+      <section className="text-gray-700 body-font overflow-hidden bg-white">
         <div className="container px-5 py-24 mx-auto">
           <div className="lg:w-4/5 mx-auto flex flex-wrap">
             <img
@@ -25,8 +23,7 @@ const ItemDetails: React.FC<DetailProductProps> = props => {
               src={product.image}
             />
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-              <h2 className="text-sm title-font text-gray-500 tracking-widest">
-              </h2>
+              <h2 className="text-sm title-font text-gray-500 tracking-widest"></h2>
               <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
                 {product.name}
               </h1>
@@ -129,8 +126,8 @@ const ItemDetails: React.FC<DetailProductProps> = props => {
                 </span>
               </div>
               <p className="leading-relaxed">
-              <p>For: {product.gender}</p>
-              Description: {product.describe}
+                <p>For: {product.gender}</p>
+                Description: {product.describe}
               </p>
               <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
                 <div className="flex">
@@ -166,35 +163,36 @@ const ItemDetails: React.FC<DetailProductProps> = props => {
               </div>
               <div className="flex">
                 <span className="title-font font-medium text-2xl text-gray-900">
-                {product.price}
+                  {product.price}
                 </span>
 
                 <div className="flex ml-auto">
-          <a
-            className="bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600 flex flex-row justify-center"
-            href="#"
-            onClick={()=> {
-              if(isLoggedIn === true) dispatch(cartActions.addToCart(product))
-              else router.push("/login")
-            }}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 mr-1"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-              />
-            </svg>
-            Add to cart
-          </a>
-        </div>
+                  <a
+                    className="bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600 flex flex-row justify-center"
+                    href="#"
+                    onClick={() => {
+                      if (isLoggedIn === true)
+                        dispatch(cartActions.addToCart(product));
+                      else router.push('/login');
+                    }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 mr-1"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                      />
+                    </svg>
+                    Add to cart
+                  </a>
+                </div>
                 <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                   <svg
                     fill="currentColor"
@@ -212,9 +210,9 @@ const ItemDetails: React.FC<DetailProductProps> = props => {
           </div>
         </div>
       </section>
-        {/* <h2 className="text-3xl" style={{margin: "0px 20px"}}>Related Products</h2>
+      {/* <h2 className="text-3xl" style={{margin: "0px 20px"}}>Related Products</h2>
         <ItemList products={products} /> */}
-      </>
-    );
-}
+    </>
+  );
+};
 export default ItemDetails;

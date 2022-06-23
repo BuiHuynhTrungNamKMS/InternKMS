@@ -5,46 +5,86 @@ import { cartActions } from "../../store/cart-slice";
 import Cart from "../Cart/Cart";
 import { useRouter } from "next/router";
 import { authActions } from "../../store/auth-slice";
+import { dialogActions } from "../../store/dialogSlice";
+
 const NavBar: React.FC = () => {
-  const quantity: number = useSelector((state:RootState)=> state.cartSlice.totalQuantity)
-  const dispatch = useDispatch()
-  let message: string = "";
+  const quantity: number = useSelector(
+    (state: RootState) => state.cartSlice.totalQuantity
+  );
   const isLoggedIn = useSelector(
     (state: RootState) => state.authSlice.isLoggedIn
   );
-  console.log(isLoggedIn)
-  if(isLoggedIn)  message = "Logout"
-  else message = "Login"
-    const router = useRouter()
+  const accessToken = useSelector(
+    (state: RootState) => state.authSlice.accessToken
+  );
+  const tokenType = useSelector(
+    (state: RootState) => state.authSlice.tokenType
+  );
+  const dispatch = useDispatch();
+  const router = useRouter();
+  let message: string = '';
+
+  if (isLoggedIn) message = 'Logout';
+  else message = 'Login';
+
   const buttonHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    if(isLoggedIn === false)  router.push("/login")
-    else{
+    if (isLoggedIn === false) router.push('/login');
+    else {
       dispatch(authActions.logout());
+      dispatch(cartActions.resetCart());
     }
-  }
+  };
 
   const openCart = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     dispatch(cartActions.setShowCart(true));
   };
-    return (
-        <>
-        <Cart />
+
+  const accessAdminPage = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    console.log(accessToken);
+    fetch('http://localhost:8080/api/home/admin', {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: tokenType + ' ' + accessToken,
+      },
+    })
+      .then((response) => {
+        if (response.ok === true) return response.status;
+        else throw new Error("Don't have permission!");
+      })
+      .then((data) => {
+        dispatch(dialogActions.changeMessage(data));
+        dispatch(dialogActions.changeShow(true));
+      })
+      .catch((error) => {
+        dispatch(dialogActions.changeMessage("Don't have permission!"));
+        dispatch(dialogActions.changeShow(true));
+      });
+  };
+  return (
+    <>
+      <Cart />
       <div
         className="md:flex md:flex-row md:justify-between text-center text-sm sm:text-base bg-gray-200 rounded-full h-full"
-        style={{ margin: '10px'}}
+        style={{ margin: '10px' }}
       >
         <div className="flex flex-row justify-center">
           <Link href="/">
             <a>
-            <img src="https://cdn5.vectorstock.com/i/1000x1000/96/59/modern-beauty-and-beautiful-woman-logo-vector-26889659.jpg" className="mr-3 w-15 h-20 rounded-full" alt="Flowbite Logo" />
-              
+              <img
+                src="https://cdn5.vectorstock.com/i/1000x1000/96/59/modern-beauty-and-beautiful-woman-logo-vector-26889659.jpg"
+                className="mr-3 w-15 h-20 rounded-full"
+                alt="Flowbite Logo"
+              />
             </a>
           </Link>
 
           <Link href="/">
-            <a className="font-mono text-3xl text-pink-600 ml-2 italic">E-Commerce <br /> Shop</a>
+            <a className="font-mono text-3xl text-pink-600 ml-2 italic">
+              E-Commerce <br /> Shop
+            </a>
           </Link>
         </div>
 
@@ -64,6 +104,12 @@ const NavBar: React.FC = () => {
               About
             </a>
           </Link>
+          <button
+            className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+            onClick={accessAdminPage}
+          >
+            Admin
+          </button>
           <button
             className="bg-red-600 text-gray-50 hover:bg-pink-700 p-3 px-3 sm:px-5 rounded-full mx-0.5"
             onClick={buttonHandler}
@@ -91,9 +137,8 @@ const NavBar: React.FC = () => {
             Cart ({quantity})
           </button>
         </div>
-        
       </div>
     </>
-    );
-}
+  );
+};
 export default NavBar;

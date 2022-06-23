@@ -19,9 +19,6 @@ export interface Product{
     image: string;
     items: any[]
 }
-// export interface ProductProps{
-//     product: Product;
-// }
 export interface ProductListProps{
     products: Product[];
 }
