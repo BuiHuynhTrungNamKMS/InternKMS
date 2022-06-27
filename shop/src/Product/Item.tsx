@@ -20,20 +20,21 @@ const Item: React.FC<Props> = (props) => {
   const dispatch = useDispatch();
   return (
     <div className="shadow-lg rounded-lg">
+    <div className="rounded-tl-lg rounded-tr-lg bg-gray-300">
       <Link href={'/products/' + product.id}>
         <a>
           <Image
-            width="301.33"
+            width="344"
             height="376.66"
             src={product.image}
-            className="rounded-tl-lg rounded-tr-lg"
+            className="rounded-tl-lg object-center"
             alt=""
           />
         </a>
       </Link>
       <div className="p-5">
         <h3>
-          <a href="#">{product.name}</a>
+          <a href="#" className="text-black font-medium">{product.name}</a>
         </h3>
         <div className="flex flex-row my-3">
           <div className="bg-black rounded-full h-5 w-5 shadow-md mr-2" />
@@ -43,19 +44,19 @@ const Item: React.FC<Props> = (props) => {
           <div className="bg-green-700 rounded-full h-5 w-5 shadow-md mr-2" />
         </div>
         <div className="flex flex-row my-3">
-          <h5 className="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs">
+          <h5 className="border-gray-500 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs">
             XL
           </h5>
-          <h5 className="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs">
+          <h5 className="border-gray-500 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs">
             XXL
           </h5>
-          <h5 className="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs">
+          <h5 className="border-gray-500 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs">
             L
           </h5>
-          <h5 className="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs">
+          <h5 className="border-gray-500 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs">
             M
           </h5>
-          <h5 className="border-gray-300 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs">
+          <h5 className="border-gray-500 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs">
             S
           </h5>
         </div>
@@ -111,6 +112,7 @@ const Item: React.FC<Props> = (props) => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

@@ -7,26 +7,26 @@ const Panel: React.FC = () => {
   const username = useSelector((state: RootState) => state.authSlice.username);
 
   if (isLoggedIn) name = 'Xin Chào ' + username + ' !';
-  else name = 'Xin Chào!';
+  else name = 'Xin Chào !';
 
   return (
-    <div className="md:flex md:flex-row mt-20">
-      <div className="md:w-2/5 flex flex-col justify-center items-center">
-        <h2 className="font-serif text-5xl text-gray-600 mb-4 text-center md:self-start md:text-left">
-          Bright Minds, Brilliant Solutions
+    <div className="md:flex md:flex-row mt-10 bg-gray-400 rounded-xl">
+      <div className="md:w-2/5 flex flex-col justify-center items-center mx-10">
+        <h2 className="text-base text-4xl text-red-600 mb-4 text-center">
+          Bright Minds - Brilliant Solutions
         </h2>
 
-        <p className="uppercase text-gray-600 tracking-wide text-center md:self-start md:text-left font-serif italic">
+        <p className="uppercase text-gray-600 tracking-wide text-justify text-base font-medium italic mx-10">
           A website that allows people to buy and sell physical goods, services,
           and digital products over the internet rather than at a
           brick-and-mortar location
         </p>
-        <button className="bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-4 px-8 text-gray-50 uppercase text-xl md:self-start my-5">
+        <button className="bg-gradient-to-r from-red-600 to-pink-500 rounded-full mt-5 py-4 px-8 text-gray-50 uppercase text-xl content-center">
           {name}
         </button>
       </div>
       <div className="md:w-3/5">
-        <img src="/slide-1.jpg" className="w-full rounded-lg mx-2" alt="" />
+        <img src="/slide-1.jpg" className="w-full rounded-r-lg mx-2" alt="" />
       </div>
     </div>
   );

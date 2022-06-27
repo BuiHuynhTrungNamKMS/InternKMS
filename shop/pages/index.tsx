@@ -4,7 +4,7 @@ import Panel from '../src/Common/Panel'
 
 const Home: NextPage = () => {
   return (
-    <div className="container mx-auto p-5">
+    <div className="mx-auto p-5 bg-gray-300">
       <Panel />
       <HomePage />
     </div>
