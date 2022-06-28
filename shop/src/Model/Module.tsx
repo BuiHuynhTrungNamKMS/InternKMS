@@ -55,3 +55,25 @@ export interface CartState {
   export interface DialogProps {
     message: string,
   }
+
+  export interface Category{
+    name: string;
+    href: string;
+  }
+  export interface FilterOption{
+    value: string;
+    label: string;
+    checked: boolean;
+  }
+  export interface Filter {
+    id: string;
+    name: string;
+    options: FilterOption[];
+  }
+  export interface FilterProps {
+      subCategories: Category[];
+      filters: Filter[];
+  }
+  export interface abc {
+    data: FilterProps;
+  }

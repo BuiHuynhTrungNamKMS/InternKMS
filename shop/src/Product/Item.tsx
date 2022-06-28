@@ -19,51 +19,34 @@ const Item: React.FC<Props> = (props) => {
   );
   const dispatch = useDispatch();
   return (
-    <div className="shadow-lg rounded-lg">
-    <div className="rounded-tl-lg rounded-tr-lg bg-gray-300">
+    <div className="shadow-xl rounded-lg">
+    <div className="rounded-tl-lg rounded-lg bg-gray-300">
       <Link href={'/products/' + product.id}>
         <a>
           <Image
             width="344"
             height="376.66"
             src={product.image}
-            className="rounded-tl-lg object-center"
+            className="rounded-t-lg object-center"
             alt=""
           />
         </a>
       </Link>
-      <div className="p-5">
+      <div className="p-2 text-center">
         <h3>
           <a href="#" className="text-black font-medium">{product.name}</a>
         </h3>
-        <div className="flex flex-row my-3">
+        <div className="flex flex-row my-3 px-10">
           <div className="bg-black rounded-full h-5 w-5 shadow-md mr-2" />
           <div className="bg-blue-800 rounded-full h-5 w-5 shadow-md mr-2" />
           <div className="bg-white rounded-full h-5 w-5 shadow-md mr-2" />
           <div className="bg-red-800 rounded-full h-5 w-5 shadow-md mr-2" />
           <div className="bg-green-700 rounded-full h-5 w-5 shadow-md mr-2" />
         </div>
-        <div className="flex flex-row my-3">
-          <h5 className="border-gray-500 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs">
-            XL
-          </h5>
-          <h5 className="border-gray-500 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs">
-            XXL
-          </h5>
-          <h5 className="border-gray-500 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs">
-            L
-          </h5>
-          <h5 className="border-gray-500 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs">
-            M
-          </h5>
-          <h5 className="border-gray-500 border-2 text-gray-400 rounded-md px-2 py-1 mr-2 text-xs">
-            S
-          </h5>
-        </div>
         <div>
           <div>
             <a
-              className="bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600 flex flex-row justify-center"
+              className="bg-[#558D97] rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600 flex flex-row justify-center"
               href="#"
               onClick={() => {
                 if (isLoggedIn === true)
@@ -90,8 +73,9 @@ const Item: React.FC<Props> = (props) => {
           </div>
           <div>
             <Link href={'/products/' + product.id}>
+            <div className="bg-gradient-to-r from-[#558097] to-[#3D6176] rounded-full py-1 px-1">
               <a
-                className="bg-purple-600 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-purple-700 flex flex-row justify-center"
+                className="bg-white rounded-full py-2 px-4 text-sm text-black hover:bg-pink-300 flex flex-row justify-center"
                 href="#"
               >
                 <svg
@@ -108,6 +92,7 @@ const Item: React.FC<Props> = (props) => {
                 </svg>
                 View Details
               </a>
+              </div>
             </Link>
           </div>
         </div>

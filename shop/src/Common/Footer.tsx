@@ -1,52 +1,90 @@
 const Footer: React.FC = () => {
   return (
-    <footer className="text-3xl p-4 bg-white rounded-lg shadow md:px-6 md:py-8 dark:bg-gray-800">
-      <div className="sm:flex sm:items-center sm:justify-between">
-        <a
-          href="https://flowbite.com/"
-          className="flex items-center mb-4 sm:mb-0"
-        >
-          <img
-            src="https://cdn5.vectorstock.com/i/1000x1000/96/59/modern-beauty-and-beautiful-woman-logo-vector-26889659.jpg"
-            className="mr-3 h-8"
-            alt="Flowbite Logo"
-          />
-          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-            Flowbite
-          </span>
-        </a>
-        <ul className="flex flex-wrap items-center mb-6 text-sm text-gray-700 sm:mb-0 dark:text-gray-400">
-          <li>
-            <a href="#" className="text-base mr-4 hover:underline md:mr-6 ">
-              About
-            </a>
-          </li>
-          <li>
-            <a href="#" className="text-base mr-4 hover:underline md:mr-6 ">
-              Privacy Policy
-            </a>
-          </li>
-          <li>
-            <a href="#" className="text-base mr-4 hover:underline md:mr-6 ">
-              Licensing
-            </a>
-          </li>
-          <li>
-            <a href="#" className="text-base hover:underline">
-              Contact
-            </a>
-          </li>
-        </ul>
-      </div>
-      <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-      <span className="block text-sm text-gray-800 sm:text-center dark:text-gray-600">
-        © 2022{' '}
-        <a href="https://flowbite.com/" className="hover:underline">
-          Flowbite™
-        </a>
-        . All Rights Reserved.
-      </span>
-    </footer>
+    <footer className="border-t border-gray-200 bg-gradient-to-r from-[#3D6176] to-pink-500 text-white">
+        <div className="
+          container
+          flex flex-col flex-wrap
+          px-4
+          py-16
+          mx-auto
+          md:items-center
+          lg:items-start
+          md:flex-row md:flex-nowrap
+        ">
+          <div className="flex-shrink-0 w-64 mx-auto text-center md:mx-0 md:text-left">
+            <svg className="fill-current h-20 w-20 mr-2" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z" /></svg>
+            <p className="mt-2 text-sm italic">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium
+              at sequi cum, impedit fuga in placeat illo eum minima possimus est
+
+            </p>
+          </div>
+          <div className="justify-between w-full mt-4 text-center lg:flex">
+            <div className="w-full px-4 lg:w-1/3 md:w-1/2">
+              <h2 className="mb-2 font-bold tracking-widest">
+                Useful Links
+              </h2>
+              <ul className="mb-8 space-y-2 text-sm list-none">
+                <li>
+                  <a className="hover:text-gray-800">Home</a>
+                </li>
+                <li>
+                  <a className="hover:text-gray-800">About Us</a>
+                </li>
+                <li>
+                  <a className="hover:text-gray-800">Blogs</a>
+                </li>
+                <li>
+                  <a className="hover:text-gray-800">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+            <div className="w-full px-4 lg:w-1/3 md:w-1/2">
+              <h2 className="mb-2 font-bold tracking-widest">
+                Useful Links
+              </h2>
+              <ul className="mb-8 space-y-2 text-sm list-none">
+                <li>
+                  <a className="hover:text-gray-800">Home</a>
+                </li>
+                <li>
+                  <a className="hover:text-gray-800">About Us</a>
+                </li>
+                <li>
+                  <a className="hover:text-gray-800">Blogs</a>
+                </li>
+                <li>
+                  <a className="hover:text-gray-800">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+            <div className="w-full px-4 lg:w-1/3 md:w-1/2">
+              <h2 className="mb-2 font-bold tracking-widest">
+                Useful Links
+              </h2>
+              <ul className="mb-8 space-y-2 text-sm list-none">
+                <li>
+                  <a className="hover:text-gray-800">Home</a>
+                </li>
+                <li>
+                  <a className="hover:text-gray-800">About Us</a>
+                </li>
+                <li>
+                  <a className="hover:text-gray-800">Blogs</a>
+                </li>
+                <li>
+                  <a className="hover:text-gray-800">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="flex justify-center">
+          <p className="text-base">
+            All rights reserved by @ company 2021
+          </p>
+        </div>
+      </footer>
   );
 };
 export default Footer;

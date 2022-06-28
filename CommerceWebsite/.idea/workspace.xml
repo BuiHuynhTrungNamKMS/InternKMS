@@ -7,6 +7,15 @@
     <list default="true" id="166789eb-327f-4d09-a0a7-b55bf8f4dcb6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/ProductConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/ProductConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/pages/products/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/pages/products/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Common/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Common/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Common/NavBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Common/NavBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Common/Panel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Common/Panel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Home/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Home/HomePage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Product/Filter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Product/Filter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Product/Item.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Product/Item.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,6 +129,8 @@
       <workItem from="1655970196311" duration="4879000" />
       <workItem from="1656037025835" duration="4878000" />
       <workItem from="1656312756001" duration="3121000" />
+      <workItem from="1656382930882" duration="3571000" />
+      <workItem from="1656400293535" duration="1392000" />
     </task>
     <servers />
   </component>

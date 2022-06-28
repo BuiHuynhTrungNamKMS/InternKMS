@@ -32,7 +32,7 @@ public class ProductConfig {
             );
 
             Product C = new Product(
-                    "Cotton jersey sweatshirt",
+                    "jersey sweatshirt",
                     "Dress",
                     1980,
                     "black",
@@ -42,7 +42,7 @@ public class ProductConfig {
             );
 
             Product D = new Product(
-                    "Gucci Rock Hudson cotton T-shirt",
+                    "Rock Hudson cotton",
                     "Shirt",
                     650,
                     "yellow",
@@ -51,7 +51,7 @@ public class ProductConfig {
                     "female"
             );
             Product E = new Product(
-                    "Gucci Rock Hudson cotton T-shirt",
+                    "Gucci Rock Hudson cotton",
                     "Shirt",
                     650,
                     "yellow",

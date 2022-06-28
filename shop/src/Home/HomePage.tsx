@@ -98,9 +98,9 @@ const HomePage: React.FC = () => {
   return (
     <>
     <Dialog />
-      <div className="my-20 font-serif text-white container mx-auto p-5 bg-gray-400 rounded-lg">
+      <div className="my-20 font-serif text-white container mx-auto p-5 bg-gray-300 rounded-lg">
         <div className="flex flex-row justify-between my-5">
-          <h2 className="text-3xl bg-gradient-to-r from-red-600 to-pink-500 px-2 py-2 rounded-r-full">Men Collection</h2>
+          <h2 className="text-3xl bg-gradient-to-r from-[#3112AF] to-[#558D97] px-2 py-2 rounded-r-full">Men Collection</h2>
           <a href="#" className="flex flex-row text-lg hover:text-purple-700">
             View All
             <svg
@@ -121,7 +121,7 @@ const HomePage: React.FC = () => {
         </div>
         <ItemList products={MEN} />
       </div>{' '}
-      <div className="my-20 text-base font-medium text-white container mx-auto p-5 bg-gray-400 rounded-lg">
+      <div className="my-20 text-base font-medium text-white container mx-auto p-5 bg-gray-300 rounded-lg">
         <div className="flex flex-row justify-between my-5">
           <h2 className="text-3xl bg-gradient-to-r from-red-600 to-pink-500 px-2 py-2 rounded-r-full">Women Collection</h2>
           <a href="#" className="flex flex-row text-lg hover:text-purple-700">

@@ -10,7 +10,7 @@ const Panel: React.FC = () => {
   else name = 'Xin Chào !';
 
   return (
-    <div className="md:flex md:flex-row mt-10 bg-gray-400 rounded-xl">
+    <div className="md:flex md:flex-row mt-10 bg-gray-300 rounded-xl">
       <div className="md:w-2/5 flex flex-col justify-center items-center mx-10">
         <h2 className="text-base text-4xl text-red-600 mb-4 text-center">
           Bright Minds - Brilliant Solutions

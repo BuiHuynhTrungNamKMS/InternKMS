@@ -17,9 +17,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
 export default function Home({ products }: ProductListProps) {
   return (
-    <div className="container mx-auto p-5">
-      <Filter />
-      <ItemList products={products} />
+    <div className="mx-auto p-10 bg-gray-100">
+      <Filter products={products}/>
     </div>
   );
 }
