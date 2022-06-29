@@ -174,7 +174,7 @@ const ItemDetails: React.FC<DetailProductProps> = (props) => {
               </div>
               <div className="flex ml-auto">
                   <a
-                    className="bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600 flex flex-row justify-center"
+                    className="m-3 bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600 flex flex-row justify-center"
                     href="#"
                     onClick={() => {
                       if (isLoggedIn === true)

@@ -33,7 +33,10 @@ public class ProductController {
     @GetMapping("/{id}")
     Product detailProduct(@PathVariable Long id) {
         return productService.findById(id);
-
+    }
+    @GetMapping("/trending")
+    public List<Product> trendingMale(@RequestParam(name = "gender") String gender){
+        return productService.findByStatusAndGender("Trending", gender);
     }
     @GetMapping("")
     public List<Product> searchByGender(@RequestParam(name = "gender") String gender){

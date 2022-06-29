@@ -9,6 +9,8 @@ import { useEffect } from 'react';
 const ItemList: React.FC<ProductListProps> = (props) => {
 
   const { products = [] } = props;
+  console.log("aaa")
+  console.log(products)
   const [data, setData] = useState<Product[]>([])
 
   const optionList = useSelector((state: RootState) => state.filterSlice.filterList);

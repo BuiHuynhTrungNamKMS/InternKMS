@@ -23,13 +23,7 @@ const Item: React.FC<Props> = (props) => {
     <div className="rounded-tl-lg rounded-lg bg-gray-300">
       <Link href={'/products/' + product.id}>
         <a>
-          <Image
-            width="344"
-            height="376.66"
-            src={product.image}
-            className="rounded-t-lg object-center"
-            alt=""
-          />
+          <img src={product.image} className="rounded-t-lg object-center w-344" width={344} height={376.66}/>
         </a>
       </Link>
       <div className="p-2 text-center">

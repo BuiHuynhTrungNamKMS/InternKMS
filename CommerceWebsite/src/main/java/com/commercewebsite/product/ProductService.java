@@ -40,4 +40,7 @@ public class ProductService {
         return productRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Couldn't find anyone product at '" + id + "'"));
     }
+    public List<Product> findByStatusAndGender(String status, String gender) {
+        return productRepository.findByStatusAndGender(status, gender);
+    }
 }

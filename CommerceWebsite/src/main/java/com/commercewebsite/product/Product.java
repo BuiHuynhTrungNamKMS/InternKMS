@@ -26,11 +26,13 @@ public class Product {
     private String color;
     private String describe;
     private String gender;
+    private String status;
+    @Column(columnDefinition = "TEXT")
     private String image;
     @OneToMany(mappedBy="product")
     private Set<Item> items = new HashSet<>();
 
-    public Product(Long id, String name, String type, int price, String color, String describe, String image, String gender) {
+    public Product(Long id, String name, String type, int price, String color, String describe, String image, String gender, String status) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -39,12 +41,13 @@ public class Product {
         this.describe = describe;
         this.image = image;
         this.gender = gender;
+        this.status = status;
     }
 
     public Product() {
     }
 
-    public Product(String name, String type, int price, String color, String describe, String image, String gender) {
+    public Product(String name, String type, int price, String color, String describe, String image, String gender, String status) {
         this.name = name;
         this.type = type;
         this.price = price;
@@ -52,9 +55,10 @@ public class Product {
         this.describe = describe;
         this.image = image;
         this.gender = gender;
+        this.status = status;
     }
 
-    public Product(String name, String type, Integer price, String color, String describe, Set<Item> items, String image, String gender) {
+    public Product(String name, String type, Integer price, String color, String describe, Set<Item> items, String image, String gender, String status) {
         this.name = name;
         this.type = type;
         this.price = price;
@@ -63,6 +67,7 @@ public class Product {
         this.items = items;
         this.image = image;
         this.gender = gender;
+        this.status = status;
     }
 
     public Product(Long id) {
@@ -145,6 +150,9 @@ public class Product {
         this.describe = describe;
     }
 
+    public void setStatus(String status) { this.status = status; }
+
+    public String getStatus(String status) { return this.status; }
     @Override
     public String toString() {
         return "Product{" +
@@ -157,6 +165,7 @@ public class Product {
                 ", gender='" + gender + '\'' +
                 ", image='" + image + '\'' +
                 ", items=" + items +
+                ", status=" + status +
                 '}';
     }
 }

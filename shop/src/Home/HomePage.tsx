@@ -1,5 +1,10 @@
 import Dialog from '../Dialog/Dialog';
 import ItemList from '../Product/ItemList';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import {ProductListProps, Product} from '../Model/Module'
+import { TrendingProductListProps } from '../Model/Module';
+import Filter from '../Product/Filter';
 const MEN = [
   {
     id: 1,
@@ -10,6 +15,7 @@ const MEN = [
     color: '',
     describe: '',
     gender: ',',
+    status: '',
     items: [],
   },
   {
@@ -21,6 +27,7 @@ const MEN = [
     color: '',
     describe: '',
     gender: ',',
+    status: '',
     items: [],
   },
   {
@@ -32,6 +39,7 @@ const MEN = [
     color: '',
     describe: '',
     gender: ',',
+    status: '',
     items: [],
   },
   {
@@ -43,6 +51,7 @@ const MEN = [
     color: '',
     describe: '',
     gender: ',',
+    status: '',
     items: [],
   },
 ];
@@ -57,6 +66,7 @@ const WOMEN = [
     color: '',
     describe: '',
     gender: ',',
+    status: '',
     items: [],
   },
   {
@@ -68,6 +78,7 @@ const WOMEN = [
     color: '',
     describe: '',
     gender: ',',
+    status: '',
     items: [],
   },
   {
@@ -79,6 +90,7 @@ const WOMEN = [
     color: '',
     describe: '',
     gender: ',',
+    status: '',
     items: [],
   },
   {
@@ -90,11 +102,16 @@ const WOMEN = [
     color: '',
     describe: '',
     gender: ',',
+    status: '',
     items: [],
   },
 ];
 
-const HomePage: React.FC = () => {
+const HomePage: React.FC<TrendingProductListProps> = (props) => {
+  
+  const {maleProducts = []} = props;
+  const {femaleProducts = []} = props;
+  
   return (
     <>
     <Dialog />
@@ -119,7 +136,7 @@ const HomePage: React.FC = () => {
             </svg>
           </a>
         </div>
-        <ItemList products={MEN} />
+        <ItemList products={maleProducts} />
       </div>{' '}
       <div className="my-20 text-base font-medium text-white container mx-auto p-5 bg-gray-300 rounded-lg">
         <div className="flex flex-row justify-between my-5">
@@ -142,7 +159,7 @@ const HomePage: React.FC = () => {
             </svg>
           </a>
         </div>
-        <ItemList products={WOMEN} />
+        <ItemList products={femaleProducts} />
       </div>
       <div className="rounded-lg shadow-lg my-20 flex flex-row">
         <div className="lg:w-3/5 w-full bg-gradient-to-r from-black to-purple-900 lg:from-black lg:via-purple-900 lg:to-transparent rounded-lg text-gray-100 p-12">

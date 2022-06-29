@@ -17,10 +17,15 @@ export interface Product{
     describe: string;
     gender: string;
     image: string;
-    items: any[]
+    status: string;
+    items: any[];
 }
 export interface ProductListProps{
     products: Product[];
+}
+export interface TrendingProductListProps{
+  maleProducts: Product[];
+  femaleProducts: Product[];
 }
 
 export interface DetailProductProps{
