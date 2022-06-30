@@ -19,7 +19,6 @@ public class ProductService {
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
-
     public void addNewProduct(Product product) {
         System.out.printf(product.toString());
     }

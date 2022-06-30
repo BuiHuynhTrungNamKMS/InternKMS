@@ -6,6 +6,8 @@ const filterSlice = createSlice({
     filterList: [] as string[],
     isChange: false,
     searchKey: '',
+    sortOption: -1,
+    gender: '',
   },
   reducers: {
     changeFilter(state, action) {
@@ -21,6 +23,19 @@ const filterSlice = createSlice({
     },
     changeSearchKey(state, action) {
         state.searchKey = action.payload;
+      },
+    changeSortOption(state, action) {
+        state.sortOption = action.payload;
+      },
+    changeGender(state, action) {
+      state.gender = action.payload;
+      },
+    refreshFilter(state) {
+      state.filterList = [];
+      state.isChange = false;
+      state.searchKey = '';
+      state.sortOption = -1;
+      state.gender = '';
       },
   },
 });

@@ -19,7 +19,7 @@ public class ProductConfig {
                     "Since its beginning, the House has always been inspired by other times and places",
                     "https://i.imgur.com/S4i072W.jpeg",
                     "male",
-                    "hot"
+                    "Hot"
             );
 
             Product B = new Product(
@@ -30,7 +30,7 @@ public class ProductConfig {
                     "Taking shape with a '70s inspired silhouette, this crepe de Chine dress features ruffles trims and a polo collar.",
                     "https://i.imgur.com/I2jPZdm.jpeg",
                     "female",
-                    "hot"
+                    "Hot"
             );
 
             Product C = new Product(
@@ -41,7 +41,7 @@ public class ProductConfig {
                     "Paying homage to the city that created a fascination with the movie industry, Gucci Love Parade is a collection inspired by Hollywood's glamour and pop culture—mixing old Hollywood with new Hollywood.",
                     "https://i.imgur.com/12YTRfX.jpeg",
                     "male",
-                    "hot"
+                    "Hot"
             );
 
             Product D = new Product(
@@ -52,7 +52,7 @@ public class ProductConfig {
                     "Printed on the back of this T-shirt is a quote by historian and archeologist Paul Veynem, while the front depicts 'Gucci Rock Hudson', a celebration of the House's long-lasting ties with the jet-set and pop culture.",
                     "https://i.imgur.com/12YTRfX.jpeg",
                     "female",
-                    "hot"
+                    "Hot"
             );
             Product E = new Product(
                     "Gucci Rock Hudson cotton",
@@ -62,7 +62,7 @@ public class ProductConfig {
                     "Printed on the back of this T-shirt is a quote by historian and archeologist Paul Veynem, while the front depicts 'Gucci Rock Hudson', a celebration of the House's long-lasting ties with the jet-set and pop culture.",
                     "https://i.imgur.com/12YTRfX.jpeg",
                     "female",
-                    "hot"
+                    "Hot"
             );
             Product F = new Product(
                     "501 Skinny Jeans",
@@ -72,7 +72,7 @@ public class ProductConfig {
                     "These timeless Levi’s 501 jeans are reinterpreted with a formfitting skinny leg and a go-with-anything faded wash",
                     "https://i.imgur.com/48eTSBd.jpeg",
                     "female",
-                    "hot"
+                    "Hot"
             );
             Product G = new Product(
                     "Slim Khaki T",

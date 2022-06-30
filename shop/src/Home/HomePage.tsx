@@ -5,6 +5,7 @@ import { useState } from 'react';
 import {ProductListProps, Product} from '../Model/Module'
 import { TrendingProductListProps } from '../Model/Module';
 import Filter from '../Product/Filter';
+import Link from 'next/link';
 const MEN = [
   {
     id: 1,
@@ -118,7 +119,8 @@ const HomePage: React.FC<TrendingProductListProps> = (props) => {
       <div className="my-20 font-serif text-white container mx-auto p-5 bg-gray-300 rounded-lg">
         <div className="flex flex-row justify-between my-5">
           <h2 className="text-3xl bg-gradient-to-r from-[#3112AF] to-[#558D97] px-2 py-2 rounded-r-full">Men Collection</h2>
-          <a href="#" className="flex flex-row text-lg hover:text-purple-700">
+          <Link href="/products">
+          <a className="flex flex-row text-lg hover:text-pink-700">
             View All
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -135,13 +137,16 @@ const HomePage: React.FC<TrendingProductListProps> = (props) => {
               />
             </svg>
           </a>
+          </Link>
+          
         </div>
         <ItemList products={maleProducts} />
       </div>{' '}
       <div className="my-20 text-base font-medium text-white container mx-auto p-5 bg-gray-300 rounded-lg">
         <div className="flex flex-row justify-between my-5">
           <h2 className="text-3xl bg-gradient-to-r from-red-600 to-pink-500 px-2 py-2 rounded-r-full">Women Collection</h2>
-          <a href="#" className="flex flex-row text-lg hover:text-purple-700">
+          <Link href="/products">
+          <a className="flex flex-row text-lg hover:text-pink-700">
             View All
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -158,6 +163,7 @@ const HomePage: React.FC<TrendingProductListProps> = (props) => {
               />
             </svg>
           </a>
+          </Link>
         </div>
         <ItemList products={femaleProducts} />
       </div>

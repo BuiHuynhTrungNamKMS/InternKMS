@@ -125,16 +125,16 @@ const ItemDetails: React.FC<DetailProductProps> = (props) => {
                   </a>
                 </span>
               </div>
-              <p className="leading-relaxed font-medium bg-[#99BFC6] p-2 rounded-lg text-teal-100">
+              <div className="leading-relaxed font-medium bg-[#99BFC6] p-2 rounded-lg text-teal-100">
               <ul className='list-disc px-5'>
-                <li className='p-2'>Gender: {product.gender}</li>
-                <li className='p-2'>Description: {product.describe}</li>
-                <li className='p-2'>{product.describe}</li>
-                <li className='p-2'>{product.describe}</li>
-                <li className='p-2'>{product.describe}</li>
+                <li key="1" className='p-2'>Gender: {product.gender}</li>
+                <li key="2" className='p-2'>Description: {product.describe}</li>
+                <li key="3" className='p-2'>{product.describe}</li>
+                <li key="4" className='p-2'>{product.describe}</li>
+                <li key="5" className='p-2'>{product.describe}</li>
               </ul>
                 
-              </p>
+              </div>
               <div className="flex mt-6 items-center pb-5 border-b-2 border-red-400 mb-5 bg-gray-300 p-5 rounded-lg">
                 <div className="flex">
                   <span className="mr-3 font-medium">Color</span>

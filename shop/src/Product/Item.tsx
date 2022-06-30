@@ -37,6 +37,9 @@ const Item: React.FC<Props> = (props) => {
           <div className="bg-red-800 rounded-full h-5 w-5 shadow-md mr-2" />
           <div className="bg-green-700 rounded-full h-5 w-5 shadow-md mr-2" />
         </div>
+        <h3 className="text-black font-medium">
+          ${product.price}
+        </h3>
         <div>
           <div>
             <a

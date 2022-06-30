@@ -7,16 +7,14 @@ import { ChevronDownIcon, FilterIcon, MinusSmIcon, PlusSmIcon, ViewGridIcon } fr
 import { ProductListProps } from "../Model/Module";
 import ItemList from "./ItemList";
 import { FilterProps } from "../Model/Module";
+import { Product } from "../Model/Module";
 const sortOptions = [
-  { name: 'Most Popular', href: '#', current: true },
-  { name: 'Best Rating', href: '#', current: false },
-  { name: 'Newest', href: '#', current: false },
-  { name: 'Price: Low to High', href: '#', current: false },
-  { name: 'Price: High to Low', href: '#', current: false },
+  { name: 'Price: Low to High', current: false},
+  { name: 'Price: High to Low', current: false},
 ]
 const subCategories = [
-  { name: 'Men', href: '#' },
-  { name: 'Women', href: '#' },
+  { name: 'Men', checked: false},
+  { name: 'Women', checked: false},
 ]
 const filters = [
   {
@@ -26,6 +24,7 @@ const filters = [
       { value: 'Shirt', label: 'T-Shirt', checked: false },
       { value: 'Jean', label: 'Jean', checked: false },
       { value: 'Dress', label: 'Dress', checked: false },
+      { value: 'Accessory', label: 'Accessory', checked: false },
     ],
   }
 ]
@@ -34,8 +33,8 @@ function classNames(...classes: any[]) {
 }
 const Filter: React.FC<ProductListProps> = (props) => {
   const { products = [] } = props;
+  const [finalData, setFinalData] = useState<Product[]>(products)
   const dispatch = useDispatch()
-
   const inputHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const option = event.target.value;
     dispatch(filterActions.changeFilter(option))
@@ -45,10 +44,43 @@ const Filter: React.FC<ProductListProps> = (props) => {
     const searchKey = (event.target as HTMLInputElement).value
     dispatch(filterActions.changeSearchKey(searchKey))
   };
+
+  const sortHandler = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+
+    const option = event.currentTarget.text;
+
+    const idx = sortOptions.findIndex((element) => element.name === option)
+
+    sortOptions.forEach((element)=>element.current = false);
+    sortOptions[idx].current = true
+
+    dispatch(filterActions.changeSortOption(idx));
+
+  };
+
+  const refreshHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    dispatch(filterActions.refreshFilter());
+
+  };
+  const genderHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    const option = event.currentTarget.textContent;
+
+    if(option === "Men")  {
+      subCategories[0].checked = true
+      subCategories[1].checked = false
+    }
+    else if (option === "Women") {
+      subCategories[1].checked = true
+      subCategories[0].checked = false
+    }
+    dispatch(filterActions.changeGender(option));
+
+  };
   
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
-
-  const data: FilterProps = {subCategories, filters};
   return (
     <div className="container bg-gray-200 rounded-lg">
       <div>
@@ -96,9 +128,9 @@ const Filter: React.FC<ProductListProps> = (props) => {
                     <ul role="list" className="font-medium text-gray-900 px-2 py-3">
                       {subCategories.map((category) => (
                         <li key={category.name}>
-                          <a href={category.href} className="block px-2 py-3">
+                          <button onClick={genderHandler} className="block px-2 py-3">
                             {category.name}
-                          </a>
+                          </button>
                         </li>
                       ))}
                     </ul>
@@ -154,7 +186,7 @@ const Filter: React.FC<ProductListProps> = (props) => {
 
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative z-10 flex items-baseline justify-between pt-15 pb-6 border-b border-gray-200">
-            <h1 className="text-4xl font-extrabold tracking-tight text-white bg-gradient-to-r from-red-600 to-pink-500 px-8 py-2 rounded-r-full">New Arrivals</h1>
+            <h1 className="text-4xl font-extrabold tracking-tight text-white bg-gradient-to-r from-red-600 to-pink-500 px-8 py-2">New Arrivals</h1>
 
             <div className="flex items-center">
             <input type="search" onKeyUp={searchHandler} id="default-search" className="mx-4 block p-2 pl-10 w-3/5 text-sm text-gray-900 bg-gray-50 rounded-full border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search..." required />
@@ -183,7 +215,7 @@ const Filter: React.FC<ProductListProps> = (props) => {
                         <Menu.Item key={option.name}>
                           {({ active }) => (
                             <a
-                              href={option.href}
+                              onClick={sortHandler}
                               className={classNames(
                                 option.current ? 'font-medium text-gray-900' : 'text-gray-500',
                                 active ? 'bg-gray-100' : '',
@@ -227,11 +259,11 @@ const Filter: React.FC<ProductListProps> = (props) => {
                 <ul role="list" className="text-sm font-medium text-gray-900 space-y-4 pb-6 border-b border-red-600">
                   {subCategories.map((category) => (
                     <li key={category.name}>
-                      <a href={category.href}>{category.name}</a>
+                      <button onClick={genderHandler} className='font-bold text-black-600'>{category.name}</button>
                     </li>
                   ))}
                 </ul>
-
+                
                 {filters.map((section) => (
                   <Disclosure as="div" key={section.id} className="border-b border-gray-200 py-6 border-red-600">
                     {({ open }) => (
@@ -275,14 +307,12 @@ const Filter: React.FC<ProductListProps> = (props) => {
                     )}
                   </Disclosure>
                 ))}
+                <button onClick={refreshHandler} className='font-bold text-white bg-[#99BFC6] hover:bg-[#3D6176] p-2 mt-2 rounded-full'>Refresh</button>
               </form>
 
-              {/* Product grid */}
               <div className="lg:col-span-7 p-2 rounded-lg">
-                {/* Replace with your content */}
                 
-                <ItemList products={products} />
-                {/* /End replace */}
+                <ItemList products={finalData} />
               </div>
             </div>
           </section>
