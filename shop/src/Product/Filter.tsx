@@ -312,7 +312,7 @@ const Filter: React.FC<ProductListProps> = (props) => {
 
               <div className="lg:col-span-7 p-2 rounded-lg">
                 
-                <ItemList products={finalData} />
+                <ItemList products={finalData} lazyLoad={true} />
               </div>
             </div>
           </section>

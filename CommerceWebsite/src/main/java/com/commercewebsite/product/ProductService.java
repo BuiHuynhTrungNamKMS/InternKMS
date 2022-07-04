@@ -1,6 +1,8 @@
 package com.commercewebsite.product;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -16,6 +18,7 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
+    public long getNumberOfProducts(){return productRepository.count();}
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
@@ -41,5 +44,9 @@ public class ProductService {
     }
     public List<Product> findByStatusAndGender(String status, String gender) {
         return productRepository.findByStatusAndGender(status, gender);
+    }
+    public List<Product> findProductsWithPagination(int offset) {
+        Page<Product> products =  productRepository.findAll(PageRequest.of(offset, 4));
+        return products.getContent();
     }
 }

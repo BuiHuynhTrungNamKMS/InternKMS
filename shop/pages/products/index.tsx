@@ -6,7 +6,7 @@ import Filter from '../../src/Product/Filter';
 import ItemList from '../../src/Product/ItemList';
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await fetch('http://localhost:8080/api/product/all');
+  const res = await fetch('http://localhost:8080/api/product/pagination?page=0');
   const products: ProductListProps = await res.json();
   return {
     props: {

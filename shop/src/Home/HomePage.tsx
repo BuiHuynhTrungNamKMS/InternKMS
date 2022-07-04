@@ -140,7 +140,7 @@ const HomePage: React.FC<TrendingProductListProps> = (props) => {
           </Link>
           
         </div>
-        <ItemList products={maleProducts} />
+        <ItemList products={maleProducts} lazyLoad={false} />
       </div>{' '}
       <div className="my-20 text-base font-medium text-white container mx-auto p-5 bg-gray-300 rounded-lg">
         <div className="flex flex-row justify-between my-5">
@@ -165,7 +165,7 @@ const HomePage: React.FC<TrendingProductListProps> = (props) => {
           </a>
           </Link>
         </div>
-        <ItemList products={femaleProducts} />
+        <ItemList products={femaleProducts} lazyLoad={false} />
       </div>
       <div className="rounded-lg shadow-lg my-20 flex flex-row">
         <div className="lg:w-3/5 w-full bg-gradient-to-r from-black to-purple-900 lg:from-black lg:via-purple-900 lg:to-transparent rounded-lg text-gray-100 p-12">

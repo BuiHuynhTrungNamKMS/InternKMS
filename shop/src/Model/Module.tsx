@@ -23,6 +23,7 @@ export interface Product{
 }
 export interface ProductListProps{
     products: Product[];
+    lazyLoad: boolean;
 }
 export interface TrendingProductListProps{
   maleProducts: Product[];

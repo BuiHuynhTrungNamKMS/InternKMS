@@ -1,6 +1,7 @@
 package com.commercewebsite.product;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +22,10 @@ public class ProductController {
     public List<Product> getAllProducts(){
         return productService.getAllProducts();
     }
+    @GetMapping("/count")
+    public long getNumberOfProducts(){
+        return productService.getNumberOfProducts();
+    }
 
     @GetMapping("/search")
     public List<Product> searchByName(@RequestParam(name = "name") String name){
@@ -37,6 +42,10 @@ public class ProductController {
     @GetMapping("/trending")
     public List<Product> trendingMale(@RequestParam(name = "gender") String gender){
         return productService.findByStatusAndGender("Trending", gender);
+    }
+    @GetMapping("/pagination")
+    public List<Product> getProductwithPagination(@RequestParam(name = "page") String page){
+        return productService.findProductsWithPagination(Integer.parseInt(page));
     }
     @GetMapping("")
     public List<Product> searchByGender(@RequestParam(name = "gender") String gender){
