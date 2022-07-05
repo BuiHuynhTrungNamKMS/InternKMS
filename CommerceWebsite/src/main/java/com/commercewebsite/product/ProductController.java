@@ -1,9 +1,11 @@
 package com.commercewebsite.product;
 
+import com.commercewebsite.Authorization.Payload.Request.SignupRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -12,6 +14,7 @@ import java.util.List;
 public class ProductController {
 
     private final ProductService productService;
+
 
     @Autowired
     public ProductController(ProductService productService) {
@@ -50,6 +53,14 @@ public class ProductController {
     @GetMapping("")
     public List<Product> searchByGender(@RequestParam(name = "gender") String gender){
         return productService.findByGender(gender);
+    }
+    @GetMapping("/delete/{id}")
+    public void deleteProduct(@PathVariable Long id){
+        productService.deleteProduct(id);
+    }
+    @PostMapping("/add")
+    public void addProduct(@Valid @RequestBody AddRequest addRequest){
+        productService.addProduct(addRequest);
     }
 //    @PostMapping
 //    public void addNewProduct(@RequestBody Product product){

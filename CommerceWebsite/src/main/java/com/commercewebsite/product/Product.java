@@ -138,10 +138,6 @@ public class Product {
         this.type = type;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
     public void setColor(String color) {
         this.color = color;
     }

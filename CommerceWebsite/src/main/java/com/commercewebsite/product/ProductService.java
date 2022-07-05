@@ -49,4 +49,22 @@ public class ProductService {
         Page<Product> products =  productRepository.findAll(PageRequest.of(offset, 4));
         return products.getContent();
     }
+    public void deleteProduct(Long id){
+        productRepository.deleteById(id);
+    }
+
+    public void addProduct(AddRequest addRequest){
+        Product product = new Product(
+                addRequest.getProductName(),
+                addRequest.getType(),
+                addRequest.getPrice(),
+                addRequest.getColor(),
+                addRequest.getDescription(),
+                addRequest.getImage(),
+                addRequest.getGender(),
+                addRequest.getStatus()
+        );
+        System.out.println(product);
+        productRepository.save(product);
+    }
 }

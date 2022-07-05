@@ -18,7 +18,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 export default function Home({ products }: ProductListProps) {
   return (
     <div className="mx-auto p-10 bg-gray-100">
-      <Filter products={products}/>
+      <Filter products={products} lazyLoad={true}/>
     </div>
   );
 }

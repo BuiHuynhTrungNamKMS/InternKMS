@@ -33,6 +33,7 @@ function classNames(...classes: any[]) {
 }
 const Filter: React.FC<ProductListProps> = (props) => {
   const { products = [] } = props;
+  const { lazyLoad }=props;
   const [finalData, setFinalData] = useState<Product[]>(products)
   const dispatch = useDispatch()
   const inputHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -312,7 +313,7 @@ const Filter: React.FC<ProductListProps> = (props) => {
 
               <div className="lg:col-span-7 p-2 rounded-lg">
                 
-                <ItemList products={finalData} lazyLoad={true} />
+                <ItemList products={finalData} lazyLoad={lazyLoad} />
               </div>
             </div>
           </section>

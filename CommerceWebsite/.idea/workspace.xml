@@ -5,14 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="166789eb-327f-4d09-a0a7-b55bf8f4dcb6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/AddRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/commercewebsite/CRUDTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/ProductController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../shop/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../shop/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../shop/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/commercewebsite/CommerceWebsiteApplicationTests.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../shop/pages/products/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/pages/products/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Common/NavBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Common/NavBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Product/Filter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Product/Filter.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +91,87 @@
       <recent name="com.commercewebsite" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.CommerceWebsiteApplication">
+    <configuration name="CRUDTest.addNewProduct" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CommerceWebsite" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.commercewebsite.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.commercewebsite" />
+      <option name="MAIN_CLASS_NAME" value="com.commercewebsite.CRUDTest" />
+      <option name="METHOD_NAME" value="addNewProduct" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CRUDTest.testDeleteById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CommerceWebsite" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.commercewebsite.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.commercewebsite" />
+      <option name="MAIN_CLASS_NAME" value="com.commercewebsite.CRUDTest" />
+      <option name="METHOD_NAME" value="testDeleteById" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CRUDTest.testGetById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CommerceWebsite" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.commercewebsite.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.commercewebsite" />
+      <option name="MAIN_CLASS_NAME" value="com.commercewebsite.CRUDTest" />
+      <option name="METHOD_NAME" value="testGetById" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CRUDTest.testListAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CommerceWebsite" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.commercewebsite.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.commercewebsite" />
+      <option name="MAIN_CLASS_NAME" value="com.commercewebsite.CRUDTest" />
+      <option name="METHOD_NAME" value="testListAll" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CRUDTest.testUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CommerceWebsite" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.commercewebsite.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.commercewebsite" />
+      <option name="MAIN_CLASS_NAME" value="com.commercewebsite.CRUDTest" />
+      <option name="METHOD_NAME" value="testUpdate" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CommerceWebsiteApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="CommerceWebsite" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.commercewebsite.Application" />
@@ -96,6 +179,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.CRUDTest.testDeleteById" />
+        <item itemvalue="JUnit.CRUDTest.testGetById" />
+        <item itemvalue="JUnit.CRUDTest.testUpdate" />
+        <item itemvalue="JUnit.CRUDTest.testListAll" />
+        <item itemvalue="JUnit.CRUDTest.addNewProduct" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -134,6 +226,8 @@
       <workItem from="1656573940837" duration="1624000" />
       <workItem from="1656902733972" duration="5057000" />
       <workItem from="1656918758019" duration="4292000" />
+      <workItem from="1656988918121" duration="5905000" />
+      <workItem from="1657006786971" duration="5508000" />
     </task>
     <servers />
   </component>

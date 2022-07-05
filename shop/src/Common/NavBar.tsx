@@ -96,7 +96,10 @@ const NavBar: React.FC = () => {
           </div>
           <div className="md:flex items-center">
             <div className="flex flex-col md:flex-row md:mx-6">
-              <a className="my-1 text-base text-white font-medium hover:text-indigo-500 md:mx-4 md:my-0 text-teal-200 hover:text-white mr-4" href="#">Upload Product</a>
+              <Link href="/product_management">
+              <a className="my-1 text-base text-white font-medium hover:text-indigo-500 md:mx-4 md:my-0 text-teal-200 hover:text-white mr-4">Upload Product</a>
+              </Link>
+              
               <button onClick={buttonHandler} className="my-1 text-base text-white font-medium hover:text-indigo-500 md:mx-4 md:my-0 text-teal-200 hover:text-white mr-4">{message}</button>
             </div>
           </div>
