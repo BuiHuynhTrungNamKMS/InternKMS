@@ -62,6 +62,10 @@ public class ProductController {
     public void addProduct(@Valid @RequestBody AddRequest addRequest){
         productService.addProduct(addRequest);
     }
+    @PostMapping("/update")
+    public void updateProduct(@Valid @RequestBody AddRequest addRequest){
+        productService.updateProduct(addRequest);
+    }
 //    @PostMapping
 //    public void addNewProduct(@RequestBody Product product){
 //        productService.addNewProduct(product);

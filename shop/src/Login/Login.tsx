@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Dialog from '../Dialog/Dialog';
 import { dialogActions } from '../../store/dialogSlice';
+import AuthService from '../../services/AuthService';
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState('');
@@ -41,6 +42,7 @@ const Login: React.FC = () => {
       })
       .then((data) => {
         dispatch(authActions.login(data));
+        AuthService.handleLoginSuccess(data);
         dispatch(dialogActions.changeMessage("Login successfully"))
         dispatch(dialogActions.changeShow(true))
         router.push("/")

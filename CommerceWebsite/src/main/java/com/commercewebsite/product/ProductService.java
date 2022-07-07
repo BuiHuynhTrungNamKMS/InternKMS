@@ -67,4 +67,17 @@ public class ProductService {
         System.out.println(product);
         productRepository.save(product);
     }
+    public void updateProduct(AddRequest addRequest){
+        Product product = productRepository.findById(addRequest.getId()).get();
+
+        product.setName(addRequest.getProductName());
+        product.setType(addRequest.getType());
+        product.setPrice(addRequest.getPrice());
+        product.setDescribe(addRequest.getDescription());
+        product.setImage(addRequest.getImage());
+        product.setGender(addRequest.getGender());
+
+        System.out.println(product);
+        productRepository.save(product);
+    }
 }

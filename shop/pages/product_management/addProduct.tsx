@@ -1,9 +1,9 @@
-import Edit from "../../src/Management/Edit";
+import AddNewProduct from "../../src/Management/AddNewProduct";
 
 export default function AddProduct() {
     return (
         <div className="bg-gray-100">
-            <Edit />
+            <AddNewProduct />
         </div>
         
     )

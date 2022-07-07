@@ -3,7 +3,7 @@ package com.commercewebsite.product;
 import javax.validation.constraints.NotBlank;
 
 public class AddRequest {
-
+    private Long id;
     private String productName;
 
     private String type;
@@ -82,5 +82,13 @@ public class AddRequest {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

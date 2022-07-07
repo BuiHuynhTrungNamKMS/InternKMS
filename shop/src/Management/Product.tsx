@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { dialogActions } from '../../store/dialogSlice';
 import Dialog from '../Dialog/Dialog';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 const Product: React.FC<DetailProductProps> = (props) => {
   const { product } = props;
   const dispatch = useDispatch();
@@ -64,9 +65,12 @@ const Product: React.FC<DetailProductProps> = (props) => {
         </span>
       </td>
       <td className="px-2 py-5 border-b border-gray-200 bg-white text-sm">
-        <button className="bg-green-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+        <Link href={"/product_management/edit/" + product.id} >
+        <a className="bg-green-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
           Update
-        </button>
+        </a>
+        </Link>
+        
       </td>
       <td className="px-2 py-5 border-b border-gray-200 bg-white text-sm">
         <button onClick={deleteHandler} className="bg-red-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">

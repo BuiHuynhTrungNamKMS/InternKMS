@@ -3,21 +3,19 @@ import { useDispatch } from 'react-redux';
 import { dialogActions } from '../../store/dialogSlice';
 import Dialog from '../Dialog/Dialog';
 import { useRouter } from 'next/router';
-import { DetailProductProps } from "../Model/Module";
-const Edit: React.FC<DetailProductProps> = (props) => {
-  const { product } = props;
-    console.log(product)
+
+const AddNewProduct: React.FC = () => {
     const dispatch = useDispatch();
     const router = useRouter();
 
-    const [productName, setProductName] = useState(product.name)
-    const [image, setImage] = useState(product.image)
-    const [price, setPrice] = useState(product.price)
-    const [color, setColor] = useState(product.color)
-    const [description, setDescription] = useState(product.describe)
-    const [gender, setGender] = useState(product.gender)
-    const [status, setStatus] = useState(product.status)
-    const [type, setType] = useState(product.type)
+    const [productName, setProductName] = useState("")
+    const [image, setImage] = useState("")
+    const [price, setPrice] = useState(0)
+    const [color, setColor] = useState("")
+    const [description, setDescription] = useState("")
+    const [gender, setGender] = useState("")
+    const [status, setStatus] = useState("")
+    const [type, setType] = useState("")
 
     const getProductName = (event: React.ChangeEvent<HTMLInputElement>) => {
         const name = event.target.value;
@@ -54,11 +52,10 @@ const Edit: React.FC<DetailProductProps> = (props) => {
 
       const submitForm = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        fetch('http://localhost:8080/api/product/update', {
+        fetch('http://localhost:8080/api/product/add', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-              id: product.id,
               productName: productName,
               type: type,
               price: price,
@@ -69,15 +66,15 @@ const Edit: React.FC<DetailProductProps> = (props) => {
               color: color
             }),
           }).then((response) => {
-            if (!response.ok) throw new Error("Can not update product");
+            if (!response.ok) throw new Error("Can not add new product");
             else {
-                dispatch(dialogActions.changeMessage("Update successfully"))
+                dispatch(dialogActions.changeMessage("Add successfully"))
                 dispatch(dialogActions.changeShow(true))
                 router.push("/product_management")
             }
           })
           .catch((error) => {
-            dispatch(dialogActions.changeMessage("Can not update product"))
+            dispatch(dialogActions.changeMessage("Can not add new product"))
             dispatch(dialogActions.changeShow(true))
           });
       };
@@ -93,37 +90,41 @@ const Edit: React.FC<DetailProductProps> = (props) => {
                   <div className="grid grid-cols-6 gap-6">
                     <div className="col-span-6 sm:col-span-3">
                       <label htmlFor="first_name" className="block text-sm font-medium text-gray-700">Product Name</label>
-                      <input onChange={getProductName} type="text" name="productName" id="productName" autoComplete="given-name" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-gray-200 py-2 px-2" defaultValue ={product.name}/>
+                      <input onChange={getProductName} type="text" name="productName" id="productName" autoComplete="given-name" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-gray-200 py-2 px-2" />
                     </div>
                     <div className="col-span-6 sm:col-span-3">
                       <label htmlFor="last_name" className="block text-sm font-medium text-gray-700">Type</label>
-                      <input onChange={getType} type="text" name="type" id="type" autoComplete="family-name" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-gray-200 py-2 px-2" defaultValue ={product.type}/>
+                      <input onChange={getType} type="text" name="type" id="type" autoComplete="family-name" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-gray-200 py-2 px-2" />
                     </div>
                     <div className="col-span-6 sm:col-span-4">
                       <label htmlFor="email_address" className="block text-sm font-medium text-gray-700">Price</label>
-                      <input onChange={getPrice} type="text" name="price" id="price" autoComplete="email" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-gray-200 py-2 px-2" defaultValue ={product.price}/>
+                      <input onChange={getPrice} type="text" name="price" id="price" autoComplete="email" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-gray-200 py-2 px-2" />
                     </div>
                     <div className="col-span-6 sm:col-span-3">
                       <label htmlFor="country" className="block text-sm font-medium text-gray-700">Image</label>
-                      <input onChange={getImage} type="text" name="image" id="image" autoComplete="email" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-gray-200 py-2 px-2" defaultValue ={product.image}/>
+                      <input onChange={getImage} type="text" name="image" id="image" autoComplete="email" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-gray-200 py-2 px-2" />
                     </div>
                     <div className="col-span-6">
                       <label htmlFor="street_address" className="block text-sm font-medium text-gray-700">Description</label>
-                      <input onChange={getDescription} type="text" name="description" id="description" autoComplete="street-address" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-gray-200 py-2 px-2" defaultValue ={product.describe}/>
+                      <input onChange={getDescription} type="text" name="description" id="description" autoComplete="street-address" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-gray-200 py-2 px-2" />
                     </div>
                     <div className="col-span-6 sm:col-span-6 lg:col-span-2">
                       <label htmlFor="city" className="block text-sm font-medium text-gray-700">Gender</label>
-                      <input onChange={getGender} type="text" name="gender" id="gender" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-gray-200 py-2 px-2" defaultValue ={product.gender}/>
+                      <input onChange={getGender} type="text" name="gender" id="gender" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-gray-200 py-2 px-2" />
+                    </div>
+                    <div className="col-span-6 sm:col-span-3 lg:col-span-2">
+                      <label htmlFor="state" className="block text-sm font-medium text-gray-700">Status</label>
+                      <input onChange={getStatus} type="text" name="status" id="status" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-gray-200 py-2 px-2" />
                     </div>
                     <div className="col-span-6 sm:col-span-3 lg:col-span-2">
                       <label htmlFor="postal_code" className="block text-sm font-medium text-gray-700">Color</label>
-                      <input onChange={getColor} type="text" name="color" id="color" autoComplete="postal-code" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-gray-200 py-2 px-2" defaultValue ={product.color}/>
+                      <input onChange={getColor} type="text" name="color" id="color" autoComplete="postal-code" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-gray-200 py-2 px-2" />
                     </div>
                   </div>
                 </div>
                 <div className="px-4 py-3 bg-gray-50 text-center sm:px-6">
                   <button type="submit" className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    Update Product
+                    Add New Product
                   </button>
                 </div>
               </div>
@@ -134,4 +135,4 @@ const Edit: React.FC<DetailProductProps> = (props) => {
       </>
   );
 };
-export default Edit;
+export default AddNewProduct;

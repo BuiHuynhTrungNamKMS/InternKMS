@@ -6,7 +6,8 @@ import Cart from "../Cart/Cart";
 import { useRouter } from "next/router";
 import { authActions } from "../../store/auth-slice";
 import { dialogActions } from "../../store/dialogSlice";
-
+import CookieService from "../../services/CookieService";
+import jwt_decode from "jwt-decode";
 const NavBar: React.FC = () => {
   const quantity: number = useSelector(
     (state: RootState) => state.cartSlice.totalQuantity
@@ -22,15 +23,14 @@ const NavBar: React.FC = () => {
   );
   const dispatch = useDispatch();
   const router = useRouter();
-  let message: string = '';
-
-  if (isLoggedIn) message = 'Logout';
-  else message = 'Login';
-
+  const token = CookieService.get('accessToken');
+  console.log(token)
+  
   const buttonHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     if (isLoggedIn === false) router.push('/login');
     else {
+      CookieService.remove('accessToken');
       dispatch(authActions.logout());
       dispatch(cartActions.resetCart());
     }
@@ -43,7 +43,6 @@ const NavBar: React.FC = () => {
 
   const accessAdminPage = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    console.log(accessToken);
     fetch('http://localhost:8080/api/home/admin', {
       headers: {
         'Content-Type': 'application/json',
@@ -55,8 +54,7 @@ const NavBar: React.FC = () => {
         else throw new Error("Don't have permission!");
       })
       .then((data) => {
-        dispatch(dialogActions.changeMessage(data));
-        dispatch(dialogActions.changeShow(true));
+        router.push("/product_management")
       })
       .catch((error) => {
         dispatch(dialogActions.changeMessage("Don't have permission!"));
@@ -96,11 +94,11 @@ const NavBar: React.FC = () => {
           </div>
           <div className="md:flex items-center">
             <div className="flex flex-col md:flex-row md:mx-6">
-              <Link href="/product_management">
-              <a className="my-1 text-base text-white font-medium hover:text-indigo-500 md:mx-4 md:my-0 text-teal-200 hover:text-white mr-4">Upload Product</a>
-              </Link>
+
+            <button onClick={accessAdminPage} className="my-1 text-base text-white font-medium hover:text-indigo-500 md:mx-4 md:my-0 text-teal-200 hover:text-white mr-4">Products Management</button>
+
               
-              <button onClick={buttonHandler} className="my-1 text-base text-white font-medium hover:text-indigo-500 md:mx-4 md:my-0 text-teal-200 hover:text-white mr-4">{message}</button>
+              <button onClick={buttonHandler} className="my-1 text-base text-white font-medium hover:text-indigo-500 md:mx-4 md:my-0 text-teal-200 hover:text-white mr-4">{token ? "logout" : "Login"}</button>
             </div>
           </div>
           <div>

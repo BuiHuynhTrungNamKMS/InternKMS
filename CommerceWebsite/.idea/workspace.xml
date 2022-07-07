@@ -5,17 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="166789eb-327f-4d09-a0a7-b55bf8f4dcb6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/AddRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/commercewebsite/CRUDTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/AddRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/AddRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/ProductController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/commercewebsite/CommerceWebsiteApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../shop/pages/products/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/pages/products/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/pages/product_management/addProduct.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/pages/product_management/addProduct.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/pages/product_management/edit/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/pages/product_management/edit/[id].tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../shop/src/Common/NavBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Common/NavBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../shop/src/Product/Filter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Product/Filter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Login/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Management/Edit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Management/Edit.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Management/Product.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Management/Product.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,6 +230,9 @@
       <workItem from="1656918758019" duration="4292000" />
       <workItem from="1656988918121" duration="5905000" />
       <workItem from="1657006786971" duration="5508000" />
+      <workItem from="1657076816750" duration="5073000" />
+      <workItem from="1657166169447" duration="2023000" />
+      <workItem from="1657177168279" duration="2466000" />
     </task>
     <servers />
   </component>
