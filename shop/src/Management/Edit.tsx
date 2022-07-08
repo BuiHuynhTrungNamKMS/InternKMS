@@ -6,7 +6,6 @@ import { useRouter } from 'next/router';
 import { DetailProductProps } from "../Model/Module";
 const Edit: React.FC<DetailProductProps> = (props) => {
   const { product } = props;
-    console.log(product)
     const dispatch = useDispatch();
     const router = useRouter();
 

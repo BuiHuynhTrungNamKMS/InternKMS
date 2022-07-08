@@ -35,11 +35,7 @@ const Product: React.FC<DetailProductProps> = (props) => {
       <td className="px-2 py-5 border-b border-gray-200 bg-white text-sm">
         <div className="flex items-center">
           <div className="flex-shrink-0 w-10 h-10">
-            <img
-              className="w-full h-full rounded-full"
-              src={product.image}
-              alt=""
-            />
+            <img className="w-full h-full rounded-full" src={product.image} alt="" />
           </div>
           <div className="ml-3">
             <p className="text-gray-900 whitespace-no-wrap font-medium">{product.name}</p>
@@ -79,7 +75,6 @@ const Product: React.FC<DetailProductProps> = (props) => {
       </td>
     </tr>
     </>
-    
   );
 };
 export default Product;

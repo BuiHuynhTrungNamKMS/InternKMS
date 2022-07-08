@@ -10,12 +10,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   const isLoggedIn = useSelector(
     (state: RootState) => state.authSlice.isLoggedIn
   );
-  console.log(isLoggedIn);
 
   const cartItems = useSelector(
     (state: RootState) => state.cartSlice.itemsList
   );
-  console.log(cartItems);
   return (
     <>
       <NavBar />

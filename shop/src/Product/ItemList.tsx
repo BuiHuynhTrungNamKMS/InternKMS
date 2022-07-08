@@ -70,7 +70,6 @@ const ItemList: React.FC<ProductListProps> = (props) => {
   }, [optionList, searchKey, sortOption, genderOption]);
 
   const getMoreData = async () => {
-    console.log(page)
     const res = await fetch(
       `http://localhost:8080/api/product/pagination?page=${page}`
     );
@@ -78,7 +77,6 @@ const ItemList: React.FC<ProductListProps> = (props) => {
     setLoadedData((item) => [...item, ...newData]);
     setData((item) => [...item, ...newData]);
     setPage(page + 1);
-    console.log(Math.ceil(totalProducts/4) - 1)
     if (page > Math.ceil(totalProducts/4) - 1) setHasMore(false);
   };
 
@@ -99,8 +97,8 @@ const ItemList: React.FC<ProductListProps> = (props) => {
             <Item key={product.id} product={product} />
           ))}
         </div>
-      </InfiniteScroll>
-    }
+      </InfiniteScroll>}
+      
     {!lazyLoad &&
         <div className="grid grid-flow-row grid-cols-1 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
           {data.map((product) => (

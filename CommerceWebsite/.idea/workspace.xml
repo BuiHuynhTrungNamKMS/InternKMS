@@ -7,13 +7,6 @@
     <list default="true" id="166789eb-327f-4d09-a0a7-b55bf8f4dcb6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/AddRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/AddRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../shop/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../shop/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../shop/pages/product_management/addProduct.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/pages/product_management/addProduct.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../shop/pages/product_management/edit/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/pages/product_management/edit/[id].tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../shop/src/Common/NavBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Common/NavBar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../shop/src/Login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Login/Login.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../shop/src/Management/Edit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Management/Edit.tsx" afterDir="false" />
@@ -233,6 +226,7 @@
       <workItem from="1657076816750" duration="5073000" />
       <workItem from="1657166169447" duration="2023000" />
       <workItem from="1657177168279" duration="2466000" />
+      <workItem from="1657248268112" duration="1663000" />
     </task>
     <servers />
   </component>

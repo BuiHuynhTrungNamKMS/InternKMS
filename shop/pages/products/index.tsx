@@ -4,7 +4,7 @@ import NavBar from '../../src/Common/NavBar';
 import { ProductListProps } from '../../src/Model/Module';
 import Filter from '../../src/Product/Filter';
 import ItemList from '../../src/Product/ItemList';
-
+import Cookies from 'js-cookie';
 export const getServerSideProps: GetServerSideProps = async () => {
   const res = await fetch('http://localhost:8080/api/product/pagination?page=0');
   const products: ProductListProps = await res.json();
