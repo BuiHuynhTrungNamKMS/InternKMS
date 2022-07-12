@@ -59,8 +59,8 @@ const Item: React.FC<Props> = (props) => {
           </div>
           <div>
             <Link href={'/products/' + product.id}>
-            <div className="bg-gradient-to-r from-[#558097] to-[#3D6176] rounded-full py-1 px-1">
-              <a className="bg-white rounded-full py-2 px-4 text-sm text-black hover:bg-pink-300 flex flex-row justify-center" href="#" >
+            <div className="bg-gradient-to-r from-red-300 to-white rounded-full py-1 px-1">
+              <a className="bg-[#558097] rounded-full py-2 px-4 text-sm text-black hover:bg-pink-500 flex flex-row justify-center" href="#" >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor" >
                   <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                 </svg>

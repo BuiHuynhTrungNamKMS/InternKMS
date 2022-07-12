@@ -7,10 +7,15 @@
     <list default="true" id="166789eb-327f-4d09-a0a7-b55bf8f4dcb6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Authorization/Security/jwt/JwtUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Authorization/Security/jwt/JwtUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/About/About.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/About/About.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Common/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Common/Footer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../shop/src/Common/NavBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Common/NavBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Common/Panel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Common/Panel.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../shop/src/Login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Login/Login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../shop/src/Management/Edit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Management/Edit.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../shop/src/Management/Product.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Management/Product.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Model/Module.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Model/Module.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Product/Item.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Product/Item.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/store/auth-slice.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/store/auth-slice.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,6 +232,12 @@
       <workItem from="1657166169447" duration="2023000" />
       <workItem from="1657177168279" duration="2466000" />
       <workItem from="1657248268112" duration="1663000" />
+      <workItem from="1657262662350" duration="1527000" />
+      <workItem from="1657268271078" duration="1453000" />
+      <workItem from="1657509033423" duration="2545000" />
+      <workItem from="1657523358547" duration="3627000" />
+      <workItem from="1657594513108" duration="1483000" />
+      <workItem from="1657609612491" duration="1244000" />
     </task>
     <servers />
   </component>

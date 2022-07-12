@@ -8,26 +8,26 @@ import { authActions } from '../../store/auth-slice';
 import { dialogActions } from '../../store/dialogSlice';
 import CookieService from '../../services/CookieService';
 import jwt_decode from 'jwt-decode';
+import { useEffect, useState } from 'react';
+import { AuthState } from '../Model/Module';
+import { NavBarData } from '../Data/Data';
+import NavBarItem from './NavBarItem';
 
 const NavBar: React.FC = () => {
-  const quantity: number = useSelector(
-    (state: RootState) => state.cartSlice.totalQuantity
-  );
-  const isLoggedIn = useSelector(
-    (state: RootState) => state.authSlice.isLoggedIn
-  );
-  const accessToken = useSelector(
-    (state: RootState) => state.authSlice.accessToken
-  );
-  const tokenType = useSelector(
-    (state: RootState) => state.authSlice.tokenType
-  );
+  const quantity: number = useSelector((state: RootState) => state.cartSlice.totalQuantity);
+  const isLoggedIn = useSelector((state: RootState) => state.authSlice.isLoggedIn);
+  const accessToken = useSelector((state: RootState) => state.authSlice.accessToken);
+  const tokenType = useSelector((state: RootState) => state.authSlice.tokenType);
   const dispatch = useDispatch();
   const router = useRouter();
-  const token = CookieService.get('accessToken');
-  console.log('tesssttt:' + token);
 
-  const buttonHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+  let token: string = "";
+  useEffect(()=>{
+    token = CookieService.get('accessToken') as string;
+    if(token) dispatch(authActions.login({isLoggedIn: true, accessToken: token, tokenType: "Bearer"} as AuthState));
+  },[])
+
+  const loginRouteHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     if (isLoggedIn === false) router.push('/login');
     else {
@@ -84,29 +84,15 @@ const NavBar: React.FC = () => {
         </div>
         <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
           <div className="text-sm lg:flex-grow">
-            <Link href="/">
-              <a className="block text-base font-medium mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-                Home
-              </a>
-            </Link>
-            <Link href="/products">
-              <a className="block text-base font-medium mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-                Products
-              </a>
-            </Link>
-            <Link href="/about">
-              <a className="block text-base font-medium mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-                About
-              </a>
-            </Link>
+          {NavBarData.map((item) => <NavBarItem name={item.name} link={item.link} key={item.name} />)}
           </div>
           <div className="md:flex items-center">
             <div className="flex flex-col md:flex-row md:mx-6">
               <button onClick={accessAdminPage} className="my-1 text-base text-white font-medium hover:text-indigo-500 md:mx-4 md:my-0 text-teal-200 hover:text-white mr-4">
                 Products Management
               </button>
-              <button onClick={buttonHandler} className="my-1 text-base text-white font-medium hover:text-indigo-500 md:mx-4 md:my-0 text-teal-200 hover:text-white mr-4" >
-                {token ? 'logout' : 'Login'}
+              <button onClick={loginRouteHandler} className="my-1 text-base text-white font-medium hover:text-indigo-500 md:mx-4 md:my-0 text-teal-200 hover:text-white mr-4" >
+                {isLoggedIn ? "Logout" : "Login"}
               </button>
             </div>
           </div>

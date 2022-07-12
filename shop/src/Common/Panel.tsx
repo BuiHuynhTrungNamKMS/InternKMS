@@ -1,13 +1,19 @@
 import { RootState } from "../../store";
 import { useSelector } from "react-redux";
-
+import { tokenData } from "../Model/Module";
+import jwt_decode  from "jwt-decode";
 const Panel: React.FC = () => {
-  let name: string = '';
+  let name: string = "";
+  const token: string = useSelector((state: RootState) => state.authSlice.accessToken);
   const isLoggedIn = useSelector((state: RootState) => state.authSlice.isLoggedIn);
-  const username = useSelector((state: RootState) => state.authSlice.username);
+  console.log(isLoggedIn)
+  if(isLoggedIn){
+    const data: tokenData = jwt_decode(token)
+    name = data.sub
+  }
+  // const data: tokenData = useSelector((state: RootState) => jwt_decode(state.authSlice.accessToken));
 
-  if (isLoggedIn) name = 'Xin Chào ' + username + ' !';
-  else name = 'Xin Chào !';
+  name = "Hello " + name;
 
   return (
     <div className="md:flex md:flex-row mt-10 bg-gray-300 rounded-xl">

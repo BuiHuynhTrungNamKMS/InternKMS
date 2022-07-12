@@ -1,3 +1,6 @@
+import { FooterData } from "../Data/Data";
+import FooterItem from "./FooterItem";
+
 const Footer: React.FC = () => {
   return (
     <footer className="border-t border-gray-200 bg-gradient-to-r from-[#3D6176] to-pink-500 text-white">
@@ -15,18 +18,7 @@ const Footer: React.FC = () => {
                 Useful Links
               </h2>
               <ul className="mb-8 space-y-2 text-sm list-none">
-                <li>
-                  <a className="hover:text-gray-800">Home</a>
-                </li>
-                <li>
-                  <a className="hover:text-gray-800">About Us</a>
-                </li>
-                <li>
-                  <a className="hover:text-gray-800">Blogs</a>
-                </li>
-                <li>
-                  <a className="hover:text-gray-800">Contact Us</a>
-                </li>
+                {FooterData.map((item) => <FooterItem name={item.name} link={item.link} key={item.name} />)}
               </ul>
             </div>
             <div className="w-full px-4 lg:w-1/3 md:w-1/2">
@@ -34,18 +26,7 @@ const Footer: React.FC = () => {
                 Useful Links
               </h2>
               <ul className="mb-8 space-y-2 text-sm list-none">
-                <li>
-                  <a className="hover:text-gray-800">Home</a>
-                </li>
-                <li>
-                  <a className="hover:text-gray-800">About Us</a>
-                </li>
-                <li>
-                  <a className="hover:text-gray-800">Blogs</a>
-                </li>
-                <li>
-                  <a className="hover:text-gray-800">Contact Us</a>
-                </li>
+              {FooterData.map((item) => <FooterItem name={item.name} link={item.link} key={item.name} />)}
               </ul>
             </div>
             <div className="w-full px-4 lg:w-1/3 md:w-1/2">
@@ -53,18 +34,7 @@ const Footer: React.FC = () => {
                 Useful Links
               </h2>
               <ul className="mb-8 space-y-2 text-sm list-none">
-                <li>
-                  <a className="hover:text-gray-800">Home</a>
-                </li>
-                <li>
-                  <a className="hover:text-gray-800">About Us</a>
-                </li>
-                <li>
-                  <a className="hover:text-gray-800">Blogs</a>
-                </li>
-                <li>
-                  <a className="hover:text-gray-800">Contact Us</a>
-                </li>
+              {FooterData.map((item) => <FooterItem name={item.name} link={item.link} key={item.name} />)}
               </ul>
             </div>
           </div>

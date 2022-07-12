@@ -25,6 +25,10 @@ export interface ProductListProps{
     products: Product[];
     lazyLoad: boolean;
 }
+export interface TrendingProductProps{
+  products: Product[];
+  title: string;
+}
 export interface TrendingProductListProps{
   maleProducts: Product[];
   femaleProducts: Product[];
@@ -52,9 +56,6 @@ export interface CartState {
 
   export interface AuthState {
     isLoggedIn: boolean;
-    id: number;
-    username: string;
-    email: string;
     accessToken: string;
     tokenType: string;
   }
@@ -62,7 +63,10 @@ export interface CartState {
   export interface DialogProps {
     message: string,
   }
-
+  export interface MenuItemProps {
+    name: string,
+    link: string
+  }
   export interface Category{
     name: string;
     href: string;
@@ -81,6 +85,27 @@ export interface CartState {
       subCategories: Category[];
       filters: Filter[];
   }
-  export interface abc {
-    data: FilterProps;
+  export interface tokenData {
+    exp: number;
+    iat: number;
+    jti: string;
+    sub: string;
+  }
+
+  export interface SocialIconProps{
+    content: string;
+    title: string;
+    path: string;
+  }
+
+  export interface loginIconProps{
+    viewBox: string;
+    path: string;
+  }
+
+  export interface inputProps{
+    getData: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    defaultValue: string | number;
+    title: string;
+    divClass: string;
   }

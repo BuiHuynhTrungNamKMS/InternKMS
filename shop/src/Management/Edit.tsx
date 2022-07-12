@@ -4,6 +4,7 @@ import { dialogActions } from '../../store/dialogSlice';
 import Dialog from '../Dialog/Dialog';
 import { useRouter } from 'next/router';
 import { DetailProductProps } from "../Model/Module";
+import InputField from "./inputField";
 const Edit: React.FC<DetailProductProps> = (props) => {
   const { product } = props;
     const dispatch = useDispatch();
@@ -90,34 +91,13 @@ const Edit: React.FC<DetailProductProps> = (props) => {
               <div className="shadow overflow-hidden sm:rounded-md">
                 <div className="px-4 py-5 bg-white sm:p-6">
                   <div className="grid grid-cols-6 gap-6">
-                    <div className="col-span-6 sm:col-span-3">
-                      <label htmlFor="first_name" className="block text-sm font-medium text-gray-700">Product Name</label>
-                      <input onChange={getProductName} type="text" name="productName" id="productName" autoComplete="given-name" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-gray-200 py-2 px-2" defaultValue ={product.name}/>
-                    </div>
-                    <div className="col-span-6 sm:col-span-3">
-                      <label htmlFor="last_name" className="block text-sm font-medium text-gray-700">Type</label>
-                      <input onChange={getType} type="text" name="type" id="type" autoComplete="family-name" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-gray-200 py-2 px-2" defaultValue ={product.type}/>
-                    </div>
-                    <div className="col-span-6 sm:col-span-4">
-                      <label htmlFor="email_address" className="block text-sm font-medium text-gray-700">Price</label>
-                      <input onChange={getPrice} type="text" name="price" id="price" autoComplete="email" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-gray-200 py-2 px-2" defaultValue ={product.price}/>
-                    </div>
-                    <div className="col-span-6 sm:col-span-3">
-                      <label htmlFor="country" className="block text-sm font-medium text-gray-700">Image</label>
-                      <input onChange={getImage} type="text" name="image" id="image" autoComplete="email" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-gray-200 py-2 px-2" defaultValue ={product.image}/>
-                    </div>
-                    <div className="col-span-6">
-                      <label htmlFor="street_address" className="block text-sm font-medium text-gray-700">Description</label>
-                      <input onChange={getDescription} type="text" name="description" id="description" autoComplete="street-address" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-gray-200 py-2 px-2" defaultValue ={product.describe}/>
-                    </div>
-                    <div className="col-span-6 sm:col-span-6 lg:col-span-2">
-                      <label htmlFor="city" className="block text-sm font-medium text-gray-700">Gender</label>
-                      <input onChange={getGender} type="text" name="gender" id="gender" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-gray-200 py-2 px-2" defaultValue ={product.gender}/>
-                    </div>
-                    <div className="col-span-6 sm:col-span-3 lg:col-span-2">
-                      <label htmlFor="postal_code" className="block text-sm font-medium text-gray-700">Color</label>
-                      <input onChange={getColor} type="text" name="color" id="color" autoComplete="postal-code" className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md bg-gray-200 py-2 px-2" defaultValue ={product.color}/>
-                    </div>
+                  <InputField getData={getProductName} title="Product Name" defaultValue={props.product.name} divClass="col-span-6 sm:col-span-3"/>
+                  <InputField getData={getType} title="Type" defaultValue={props.product.type} divClass="col-span-6 sm:col-span-3"/>
+                  <InputField getData={getPrice} title="Price" defaultValue={props.product.price} divClass="col-span-6 sm:col-span-4"/>
+                  <InputField getData={getImage} title="Image" defaultValue={props.product.image} divClass="col-span-6 sm:col-span-3"/>
+                  <InputField getData={getDescription} title="Description" defaultValue={props.product.describe} divClass="col-span-6"/>
+                  <InputField getData={getGender} title="Gender" defaultValue={props.product.gender} divClass="col-span-6 sm:col-span-6 lg:col-span-2"/>
+                  <InputField getData={getColor} title="Color" defaultValue={props.product.color} divClass="col-span-6 sm:col-span-3 lg:col-span-2"/>
                   </div>
                 </div>
                 <div className="px-4 py-3 bg-gray-50 text-center sm:px-6">
