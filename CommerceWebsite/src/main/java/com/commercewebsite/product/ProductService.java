@@ -1,6 +1,7 @@
 package com.commercewebsite.product;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -26,8 +27,13 @@ public class ProductService {
         System.out.printf(product.toString());
     }
 
-    public List<Product> findByName(String name) {
-        return productRepository.findByNameContainingIgnoreCase(name);
+    public List<Product> findByKeyword(String keyword, Integer offset, Integer size) {
+        List<Product> data = productRepository.findByKeyword(keyword);
+
+        if (data.size() - 1 < offset*size)    data.clear();
+        else if(data.size() - 1 >= offset*size && data.size() < offset*size + size) data = data.subList(offset*size, data.size());
+        else data = data.subList(offset*size, offset*size + size);
+        return data;
     }
 
     public List<Product> findByGender(String gender) {
@@ -79,5 +85,23 @@ public class ProductService {
 
         System.out.println(product);
         productRepository.save(product);
+    }
+    public List<Product> filter(String type, String gender, Integer offset, Integer size){
+        List<Product> data;
+        if(type.equals("all"))  type = null;
+        if(gender.equals("all")) gender = null;
+
+        Product example = Product
+                .builder()
+                .type(type) // firstName from parameter
+                .gender(gender) // lastName from parameter
+                .build();
+        data =  productRepository.findAll(Example.of(example));
+
+        if(data.size() - 1 < offset*size)    data.clear();
+        else if(data.size() - 1 >= offset*size && data.size() < offset*size + size) data = data.subList(offset*size, data.size());
+        else data = data.subList(offset*size, offset*size + size);
+
+        return data;
     }
 }

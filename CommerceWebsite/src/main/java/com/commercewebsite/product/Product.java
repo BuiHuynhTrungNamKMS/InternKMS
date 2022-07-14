@@ -1,6 +1,9 @@
 package com.commercewebsite.product;
 
 import com.commercewebsite.Item.Item;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -8,6 +11,9 @@ import java.util.Set;
 
 @Entity
 @Table
+@Builder
+
+@AllArgsConstructor
 public class Product {
     @Id
     @SequenceGenerator(
@@ -114,7 +120,7 @@ public class Product {
         return type;
     }
 
-    public int getPrice() {
+    public Integer getPrice() {
         return price;
     }
 

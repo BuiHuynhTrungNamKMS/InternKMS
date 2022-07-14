@@ -9,8 +9,8 @@ import java.util.List;
 @Repository
 public interface ProductRepository extends JpaRepository<Product,Long> {
     List<Product> findAllByName(String name);
-
-    List<Product> findByNameContainingIgnoreCase(String name);
+    @Query(value = "select * from Product p where p.name like %:keyword%", nativeQuery = true)
+    List<Product> findByKeyword(String keyword);
     List<Product> findByGender(String gender);
 
     List<Product> findByOrderByPriceAsc();

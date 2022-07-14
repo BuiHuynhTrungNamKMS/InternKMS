@@ -14,6 +14,7 @@ const sortOptions = [
 const subCategories = [
   { name: 'Men', checked: false},
   { name: 'Women', checked: false},
+  { name: 'All', checked: false},
 ]
 const filters = [
   {
@@ -37,6 +38,7 @@ const Filter: React.FC<ProductListProps> = (props) => {
   const dispatch = useDispatch()
   const inputHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const option = event.target.value;
+    console.log(option)
     dispatch(filterActions.changeFilter(option))
   };
 
@@ -56,6 +58,9 @@ const Filter: React.FC<ProductListProps> = (props) => {
 
   const refreshHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
+    for(let i = 0; i < filters[0].options.length - 1; i++){
+      filters[0].options[i].checked = false
+    }
     dispatch(filterActions.refreshFilter());
 
   };
@@ -66,10 +71,17 @@ const Filter: React.FC<ProductListProps> = (props) => {
     if(option === "Men")  {
       subCategories[0].checked = true
       subCategories[1].checked = false
+      subCategories[2].checked = false
     }
     else if (option === "Women") {
       subCategories[1].checked = true
       subCategories[0].checked = false
+      subCategories[2].checked = false
+    }
+    else{
+      subCategories[1].checked = false
+      subCategories[0].checked = false
+      subCategories[2].checked = true
     }
     dispatch(filterActions.changeGender(option));
 
@@ -224,7 +236,7 @@ const Filter: React.FC<ProductListProps> = (props) => {
                           <div className="space-y-4">
                             {section.options.map((option, optionIdx) => (
                               <div key={option.value} className="flex items-center">
-                                <input id={`filter-${section.id}-${optionIdx}`} onChange={inputHandler} name={`${section.id}[]`} defaultValue={option.value} type="checkbox" defaultChecked={option.checked} className="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500" />
+                                <input id={`filter-${section.id}-${optionIdx}`} onChange={inputHandler} name={`${section.id}[]`} defaultValue={option.value} type="radio" defaultChecked={option.checked} className="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500" />
                                 <label htmlFor={`filter-${section.id}-${optionIdx}`} className="ml-3 text-sm text-gray-600" >
                                   {option.label}
                                 </label>

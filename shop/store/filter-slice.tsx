@@ -3,39 +3,38 @@ import { createSlice } from '@reduxjs/toolkit';
 const filterSlice = createSlice({
   name: 'filter',
   initialState: {
-    filterList: [] as string[],
+    filter: 'all',
     isChange: false,
     searchKey: '',
     sortOption: -1,
-    gender: '',
+    gender: 'all',
+    currentFilterOption: 0
   },
   reducers: {
     changeFilter(state, action) {
-      const option: string = action.payload;
-      if (state.filterList.includes(option)) {
-        state.filterList = state.filterList.filter(
-          (item: string) => item !== option
-        );
-      } else {
-        state.filterList.push(option);
-      }
-      state.isChange = true;
+      state.filter = action.payload;
+      state.currentFilterOption = 1;
     },
     changeSearchKey(state, action) {
         state.searchKey = action.payload;
+        state.currentFilterOption = 2;
       },
     changeSortOption(state, action) {
         state.sortOption = action.payload;
       },
     changeGender(state, action) {
-      state.gender = action.payload;
+      if(action.payload === "Men")  state.gender = "male";
+      else if (action.payload === "Women") state.gender = "female";
+      else state.gender = "all";
+      state.currentFilterOption = 1;
       },
     refreshFilter(state) {
-      state.filterList = [];
+      state.filter = "all";
       state.isChange = false;
       state.searchKey = '';
       state.sortOption = -1;
-      state.gender = '';
+      state.gender = 'all';
+      state.currentFilterOption = 0;
       },
   },
 });

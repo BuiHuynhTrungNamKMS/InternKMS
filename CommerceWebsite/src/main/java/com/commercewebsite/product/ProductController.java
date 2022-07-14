@@ -31,8 +31,8 @@ public class ProductController {
     }
 
     @GetMapping("/search")
-    public List<Product> searchByName(@RequestParam(name = "name") String name){
-        return productService.findByName(name);
+    public List<Product> searchByKeyword(@RequestParam(name = "keyword") String keyword, @RequestParam(name = "offset") String offset, @RequestParam(name = "size") String size){
+        return productService.findByKeyword(keyword, Integer.parseInt(offset), Integer.parseInt(size));
     }
     @GetMapping("/sort")
     public List<Product> sortByPrice(){
@@ -51,12 +51,16 @@ public class ProductController {
         return productService.findProductsWithPagination(Integer.parseInt(page));
     }
     @GetMapping("")
-    public List<Product> searchByGender(@RequestParam(name = "gender") String gender){
-        return productService.findByGender(gender);
+    public List<Product> Pagination(@RequestParam(name = "page") String page){
+        return productService.findProductsWithPagination(Integer.parseInt(page));
     }
     @GetMapping("/delete/{id}")
     public void deleteProduct(@PathVariable Long id){
         productService.deleteProduct(id);
+    }
+    @GetMapping("/filter")
+    public List<Product> Filter(@RequestParam(name = "type") String type, @RequestParam(name = "gender") String gender, @RequestParam(name = "offset") String offset, @RequestParam(name = "size") String size){
+        return productService.filter(type, gender,Integer.parseInt(offset), Integer.parseInt(size));
     }
     @PostMapping("/add")
     public void addProduct(@Valid @RequestBody AddRequest addRequest){

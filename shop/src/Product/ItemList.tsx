@@ -9,91 +9,89 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 
 const ItemList: React.FC<ProductListProps> = (props) => {
   const { products = [] } = props;
+  useEffect(() => {
+    fetch("http://localhost:8080/api/product?page=0")
+    .then(response => response.json())
+    .then(data => {
+      setLoadedData(data)
+    })
+  },[])
   const { lazyLoad } = props;
-  const [loadedData, setLoadedData]= useState<Product[]>(products);
-  const [data, setData] = useState<Product[]>(products);
+  const [loadedData, setLoadedData]= useState<Product[]>([]);
   const [hasMore, setHasMore] = useState(true);
   const [page, setPage] = useState(1);
-  const [totalProducts, setTotalProducts] = useState(0)
 
-  const optionList = useSelector(
-    (state: RootState) => state.filterSlice.filterList
-  );
-  const searchKey = useSelector(
-    (state: RootState) => state.filterSlice.searchKey
-  );
-  const sortOption = useSelector(
-    (state: RootState) => state.filterSlice.sortOption
-  );
-  const genderOption = useSelector(
-    (state: RootState) => state.filterSlice.gender
-  );
+  const option = useSelector((state: RootState) => state.filterSlice.filter);
+  const searchKey = useSelector((state: RootState) => state.filterSlice.searchKey);
+  const sortOption = useSelector((state: RootState) => state.filterSlice.sortOption);
+  const genderOption = useSelector((state: RootState) => state.filterSlice.gender);
+  const currentFilterOption = useSelector((state: RootState) => state.filterSlice.currentFilterOption);
   useEffect(() => {
-    fetch("http://localhost:8080/api/product/count")
+    
+    fetch(`http://localhost:8080/api/product/filter?type=${option}&gender=${genderOption}&offset=0&size=4`)
     .then(response => response.json())
-    .then(data => setTotalProducts(data))
-  },[])
+    .then(data => {
+      setLoadedData(data)
+      setHasMore(true)
+      setPage(1)
+    })
+    
+  }, [option, genderOption]);
   useEffect(() => {
-    let temp: Product[] = [];
-    if (optionList.length === 0 || optionList.length === 3) {
-      for (let j = 0; j < loadedData.length; j++) {
-        if (loadedData[j].name.includes(searchKey)) temp.push(loadedData[j]);
-      }
-    } else {
-      for (let i = 0; i < optionList.length; i++) {
-        for (let j = 0; j < loadedData.length; j++) {
-          if (
-            optionList[i] === loadedData[j].type &&
-            loadedData[j].name.includes(searchKey)
-          )
-            temp.push(loadedData[j]);
-        }
-      }
-    }
-
-    if (genderOption === 'Men') {
-      temp = temp.filter((item) => item.gender === 'male');
-    } else if (genderOption === 'Women') {
-      temp = temp.filter((item) => item.gender === 'female');
-    }
-
-    if (sortOption === 0) {
-      temp = temp.sort((a: Product, b: Product) => {
-        return a.price - b.price;
-      });
-    } else if (sortOption === 1) {
-      temp = temp.sort((a: Product, b: Product) => {
-        return b.price - a.price;
-      });
-    }
-    setData(temp);
-  }, [optionList, searchKey, sortOption, genderOption]);
-
+    fetch(`http://localhost:8080/api/product/search?keyword=${searchKey}&offset=0&size=4`)
+    .then(response => response.json())
+    .then(data => {
+      setLoadedData(data)
+      setHasMore(true)
+      setPage(1)
+    })
+    
+  }, [searchKey]);
+console.log("current " + currentFilterOption)
   const getMoreData = async () => {
-    const res = await fetch(
-      `http://localhost:8080/api/product/pagination?page=${page}`
-    );
-    const newData = await res.json();
-    setLoadedData((item) => [...item, ...newData]);
-    setData((item) => [...item, ...newData]);
-    setPage(page + 1);
-    if (page > Math.ceil(totalProducts/4) - 1) setHasMore(false);
+    if (currentFilterOption === 0){
+      
+      const res = await fetch(`http://localhost:8080/api/product?page=${page}`);
+      const newData = await res.json();
+      if (newData.length > 0) {
+      setLoadedData((item) => [...item, ...newData]);
+      setPage(page + 1)
+      }
+    }else if (currentFilterOption === 1){
+      
+        const res = await fetch(
+          `http://localhost:8080/api/product/filter?type=${option}&gender=${genderOption}&offset=${page}&size=4`
+        );
+        const newData = await res.json();
+        if (newData.length > 0) {
+        setLoadedData((item) => [...item, ...newData]);
+        setPage(page + 1)
+      }
+      }else {
+      const res = await fetch(
+        `http://localhost:8080/api/product/search?keyword=${searchKey}&offset=${page}&size=4`
+      );
+      const newData = await res.json();
+      if (newData.length > 0) {
+      setLoadedData((item) => [...item, ...newData]);
+      setPage(page + 1)
+      }
+    }
+
   };
 
   return (
     <>
     {lazyLoad &&
       <InfiniteScroll
-        dataLength={data.length}
+        dataLength={loadedData.length}
         next={getMoreData}
         hasMore={hasMore}
-        loader={<button className="bg-pink-400 items-center p-2 rounded-lg text-white" disabled>
-        Processing...
-      </button>}
-        endMessage={<button className='mt-5 bg-pink-400 items-center p-2 rounded-lg text-white' disabled>End</button>}
+        loader={null}
+        endMessage={null}
       >
         <div className="grid grid-flow-row grid-cols-1 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
-          {data.map((product) => (
+          {loadedData.map((product) => (
             <Item key={product.id} product={product} />
           ))}
         </div>
@@ -101,7 +99,7 @@ const ItemList: React.FC<ProductListProps> = (props) => {
       
     {!lazyLoad &&
         <div className="grid grid-flow-row grid-cols-1 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
-          {data.map((product) => (
+          {products.map((product) => (
             <Item key={product.id} product={product} />
           ))}
         </div>
