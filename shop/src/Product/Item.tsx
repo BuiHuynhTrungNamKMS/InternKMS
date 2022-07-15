@@ -1,17 +1,16 @@
 import { ItemProps } from '../Model/Module';
 import Image from 'next/image';
-
-type Props = {
-  product: ItemProps;
-};
+import { ColorOptionData } from '../Data/Data'
+import { Product } from '../Model/Module';
 
 import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
 import { cartActions } from '../../store/cart-slice';
 import { RootState } from '../../store';
 import { useRouter } from 'next/router';
+import ColorOption from './ColorOption';
 
-const Item: React.FC<Props> = (props) => {
+const Item: React.FC<{product: Product}> = (props) => {
   const { product } = props;
   const router = useRouter();
   const isLoggedIn = useSelector(
@@ -30,20 +29,16 @@ const Item: React.FC<Props> = (props) => {
         <h3>
           <a href="#" className="text-black font-medium">{product.name}</a>
         </h3>
-        <div className="flex flex-row my-3 px-10">
-          <div className="bg-black rounded-full h-5 w-5 shadow-md mr-2" />
-          <div className="bg-blue-800 rounded-full h-5 w-5 shadow-md mr-2" />
-          <div className="bg-white rounded-full h-5 w-5 shadow-md mr-2" />
-          <div className="bg-red-800 rounded-full h-5 w-5 shadow-md mr-2" />
-          <div className="bg-green-700 rounded-full h-5 w-5 shadow-md mr-2" />
+        <div className="flex flex-row my-3 px-auto">
+        {ColorOptionData.map((item)=> <ColorOption key={item.className} className={item.className} />)}
+        <div className="px-2 object-right-top rounded-lg bg-red-600 text-white">{product.status}</div>
         </div>
         <h3 className="text-black font-medium">
           ${product.price}
         </h3>
         <div>
           <div>
-            <a
-              className="bg-[#558D97] rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600 flex flex-row justify-center"
+            <a className="bg-[#558D97] rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600 flex flex-row justify-center"
               href="#"
               onClick={() => {
                 if (isLoggedIn === true)

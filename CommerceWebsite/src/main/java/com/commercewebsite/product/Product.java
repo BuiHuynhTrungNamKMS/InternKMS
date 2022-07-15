@@ -4,16 +4,21 @@ import com.commercewebsite.Item.Item;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
+import org.apache.tomcat.jni.Local;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table
 @Builder
-
+@ToString
 @AllArgsConstructor
+@NoArgsConstructor
 public class Product {
     @Id
     @SequenceGenerator(
@@ -38,6 +43,9 @@ public class Product {
     @OneToMany(mappedBy="product")
     private Set<Item> items = new HashSet<>();
 
+    private LocalDateTime createAt;
+    private LocalDateTime  deleteAt;
+    private LocalDateTime  updateAt;
     public Product(Long id, String name, String type, int price, String color, String describe, String image, String gender, String status) {
         this.id = id;
         this.name = name;
@@ -50,10 +58,7 @@ public class Product {
         this.status = status;
     }
 
-    public Product() {
-    }
-
-    public Product(String name, String type, int price, String color, String describe, String image, String gender, String status) {
+    public Product(String name, String type, int price, String color, String describe, String image, String gender, String status, LocalDateTime  createAt) {
         this.name = name;
         this.type = type;
         this.price = price;
@@ -62,6 +67,7 @@ public class Product {
         this.image = image;
         this.gender = gender;
         this.status = status;
+        this.createAt = createAt;
     }
 
     public Product(String name, String type, Integer price, String color, String describe, Set<Item> items, String image, String gender, String status) {
@@ -74,38 +80,6 @@ public class Product {
         this.image = image;
         this.gender = gender;
         this.status = status;
-    }
-
-    public Product(Long id) {
-        this.id = id;
-    }
-
-    public Set<Item> getItems() {
-        return items;
-    }
-
-    public void setPrice(Integer price) {
-        this.price = price;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public void setItems(Set<Item> items) {
-        this.items = items;
     }
 
     public Long getId() {
@@ -132,6 +106,34 @@ public class Product {
         return describe;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public Set<Item> getItems() {
+        return items;
+    }
+
+    public LocalDateTime getCreateAt() {
+        return createAt;
+    }
+
+    public LocalDateTime getDeleteAt() {
+        return deleteAt;
+    }
+
+    public LocalDateTime getUpdateAt() {
+        return updateAt;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -144,6 +146,10 @@ public class Product {
         this.type = type;
     }
 
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
     public void setColor(String color) {
         this.color = color;
     }
@@ -152,22 +158,31 @@ public class Product {
         this.describe = describe;
     }
 
-    public void setStatus(String status) { this.status = status; }
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 
-    public String getStatus(String status) { return this.status; }
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", type='" + type + '\'' +
-                ", price=" + price +
-                ", color='" + color + '\'' +
-                ", describe='" + describe + '\'' +
-                ", gender='" + gender + '\'' +
-                ", image='" + image + '\'' +
-                ", items=" + items +
-                ", status=" + status +
-                '}';
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public void setItems(Set<Item> items) {
+        this.items = items;
+    }
+
+    public void setCreateAt(LocalDateTime createAt) {
+        this.createAt = createAt;
+    }
+
+    public void setDeleteAt(LocalDateTime deleteAt) {
+        this.deleteAt = deleteAt;
+    }
+
+    public void setUpdateAt(LocalDateTime updateAt) {
+        this.updateAt = updateAt;
     }
 }

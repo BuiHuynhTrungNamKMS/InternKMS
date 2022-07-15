@@ -7,12 +7,11 @@
     <list default="true" id="166789eb-327f-4d09-a0a7-b55bf8f4dcb6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/ProductConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/ProductConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/ProductRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../shop/src/Product/ItemList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Product/ItemList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/commercewebsite/CRUDTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/commercewebsite/CRUDTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,6 +237,7 @@
       <workItem from="1657680628341" duration="5720000" />
       <workItem from="1657766895194" duration="7433000" />
       <workItem from="1657782583118" duration="4151000" />
+      <workItem from="1657853301837" duration="5801000" />
     </task>
     <servers />
   </component>

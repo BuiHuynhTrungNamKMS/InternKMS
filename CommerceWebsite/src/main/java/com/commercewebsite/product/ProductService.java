@@ -7,28 +7,34 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class ProductService {
     private final ProductRepository productRepository;
-
     @Autowired
     public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
 
+    public List<Product> clearDeleteProduct(List<Product> products){
+        List<Product> temp = new ArrayList<>();
+        for (Product p : products) {
+            if(p.getDeleteAt() == null) temp.add(p);
+        }
+        return temp;
+    }
     public long getNumberOfProducts(){return productRepository.count();}
     public List<Product> getAllProducts() {
-        return productRepository.findAll();
-    }
-    public void addNewProduct(Product product) {
-        System.out.printf(product.toString());
+        return clearDeleteProduct(productRepository.findAll());
     }
 
     public List<Product> findByKeyword(String keyword, Integer offset, Integer size) {
-        List<Product> data = productRepository.findByKeyword(keyword);
+        List<Product> data = clearDeleteProduct(productRepository.findByKeyword(keyword));
 
         if (data.size() - 1 < offset*size)    data.clear();
         else if(data.size() - 1 >= offset*size && data.size() < offset*size + size) data = data.subList(offset*size, data.size());
@@ -36,12 +42,8 @@ public class ProductService {
         return data;
     }
 
-    public List<Product> findByGender(String gender) {
-        return productRepository.findByGender(gender);
-    }
-
     public List<Product> sortByPrice() {
-        return productRepository.findByOrderByPriceAsc();
+        return clearDeleteProduct(productRepository.findByOrderByPriceAsc());
     }
 
     public Product findById(Long id) {
@@ -49,17 +51,21 @@ public class ProductService {
                 .orElseThrow(() -> new RuntimeException("Couldn't find anyone product at '" + id + "'"));
     }
     public List<Product> findByStatusAndGender(String status, String gender) {
-        return productRepository.findByStatusAndGender(status, gender);
+        return clearDeleteProduct(productRepository.findByStatusAndGender(status, gender));
     }
     public List<Product> findProductsWithPagination(int offset) {
         Page<Product> products =  productRepository.findAll(PageRequest.of(offset, 4));
-        return products.getContent();
+        return clearDeleteProduct(products.getContent());
     }
     public void deleteProduct(Long id){
-        productRepository.deleteById(id);
+        LocalDateTime currentDate = LocalDateTime.now();
+        Product product = productRepository.findById(id).get();
+        product.setDeleteAt(currentDate);
+        productRepository.save(product);
     }
 
     public void addProduct(AddRequest addRequest){
+        LocalDateTime currentDate = LocalDateTime.now();
         Product product = new Product(
                 addRequest.getProductName(),
                 addRequest.getType(),
@@ -68,12 +74,13 @@ public class ProductService {
                 addRequest.getDescription(),
                 addRequest.getImage(),
                 addRequest.getGender(),
-                addRequest.getStatus()
+                addRequest.getStatus(),
+                currentDate
         );
-        System.out.println(product);
         productRepository.save(product);
     }
     public void updateProduct(AddRequest addRequest){
+        LocalDateTime currentDate = LocalDateTime.now();
         Product product = productRepository.findById(addRequest.getId()).get();
 
         product.setName(addRequest.getProductName());
@@ -82,8 +89,8 @@ public class ProductService {
         product.setDescribe(addRequest.getDescription());
         product.setImage(addRequest.getImage());
         product.setGender(addRequest.getGender());
+        product.setUpdateAt(currentDate);
 
-        System.out.println(product);
         productRepository.save(product);
     }
     public List<Product> filter(String type, String gender, Integer offset, Integer size){
@@ -96,12 +103,12 @@ public class ProductService {
                 .type(type) // firstName from parameter
                 .gender(gender) // lastName from parameter
                 .build();
-        data =  productRepository.findAll(Example.of(example));
+        data =  clearDeleteProduct(productRepository.findAll(Example.of(example)));
 
         if(data.size() - 1 < offset*size)    data.clear();
         else if(data.size() - 1 >= offset*size && data.size() < offset*size + size) data = data.subList(offset*size, data.size());
         else data = data.subList(offset*size, offset*size + size);
 
-        return data;
+        return clearDeleteProduct(data);
     }
 }

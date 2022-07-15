@@ -9,6 +9,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 
@@ -20,6 +21,7 @@ public class CRUDTest {
 
     @Test
     public void addNewProduct(){
+        LocalDateTime currentDate = LocalDateTime.now();
         Product product = new Product(
                 "abc",
                 "Jean",
@@ -28,7 +30,8 @@ public class CRUDTest {
                 "Welcome",
                 "abc.com",
                 "female",
-                "Hot"
+                "Hot",
+                currentDate
         );
 
         Product savedProduct = repo.save(product);
