@@ -7,11 +7,66 @@
     <list default="true" id="166789eb-327f-4d09-a0a7-b55bf8f4dcb6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Authorization/Role/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Authorization/Role/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Item/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Item/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Whistlist/Whistlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/Whistlist/Whistlist.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/ProductConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/ProductConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/ProductController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/product/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/commercewebsite/CRUDTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/commercewebsite/CRUDTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/commercewebsite/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/commercewebsite/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/pages/about.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/pages/about.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/pages/api/hello.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/pages/api/hello.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/pages/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/pages/login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/pages/product_management/addProduct.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/pages/product_management/addProduct.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/pages/product_management/edit/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/pages/product_management/edit/[id].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/pages/product_management/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/pages/product_management/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/pages/products/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/pages/products/[id].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/pages/products/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/pages/products/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/pages/register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/pages/register.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/services/AuthService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/services/AuthService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/services/CookieService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/services/CookieService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/services/getAllProducts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/services/getAllProducts.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/About/About.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/About/SocialIcon.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/About/SocialIcon.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Cart/Cart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Cart/Cart.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Common/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Common/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Common/FooterItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Common/FooterItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Common/NavBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Common/NavBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Common/NavBarItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Common/NavBarItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Common/Panel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Common/Panel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Common/SearchBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Common/SearchBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Data/Data.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Dialog/Dialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Dialog/Dialog.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Home/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Home/HomePage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Home/TrendingProduct.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Home/TrendingProduct.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Login/IconLoginPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Login/IconLoginPanel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Login/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Login/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Login/LoginIcon.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Login/LoginIcon.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Management/AddNewProduct.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Management/AddNewProduct.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Management/ColumnHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Management/ColumnHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Management/Edit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Management/Edit.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Management/Product.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Management/Product.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Management/ProductList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Management/ProductList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Management/TableHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Management/TableHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Management/inputField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Management/inputField.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Model/Module.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Model/Module.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Product/ColorOption.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Product/ColorOption.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Product/Filter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Product/Filter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Product/Item.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Product/Item.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Product/ItemDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Product/ItemDetails.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Product/ItemList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Product/ItemList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Register/IconRegisterPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Register/IconRegisterPanel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Register/Register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Register/Register.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/src/Register/RegisterIcon.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/src/Register/RegisterIcon.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/store/auth-slice.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/store/auth-slice.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/store/cart-slice.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/store/cart-slice.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/store/dialogSlice.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/store/dialogSlice.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/store/filter-slice.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/store/filter-slice.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop/store/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/store/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,6 +293,11 @@
       <workItem from="1657766895194" duration="7433000" />
       <workItem from="1657782583118" duration="4151000" />
       <workItem from="1657853301837" duration="5801000" />
+      <workItem from="1657868069377" duration="1486000" />
+      <workItem from="1658113023642" duration="3923000" />
+      <workItem from="1658128218626" duration="1400000" />
+      <workItem from="1658217055684" duration="3118000" />
+      <workItem from="1658385630219" duration="5001000" />
     </task>
     <servers />
   </component>

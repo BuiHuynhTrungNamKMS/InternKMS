@@ -1,4 +1,5 @@
 import Link from 'next/link';
+
 import { ProductListProps } from '../Model/Module';
 import Product from './Product';
 import TableHeader from './TableHeader';

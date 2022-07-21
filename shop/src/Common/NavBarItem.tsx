@@ -1,15 +1,14 @@
-import { MenuItemProps } from '../Model/Module';
 import Link from 'next/link';
 
-const NavBarItem: React.FC<MenuItemProps> = (props) => {
+import { MenuItemProps } from '../Model/Module';
+
+const NavBarItem = ({ link, name }: MenuItemProps) => {
   return (
-    <Link href={props.link}>
+    <Link href={link}>
       <button className="block text-base font-medium mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-        {props.name}
+        {name}
       </button>
     </Link>
   );
 };
 export default NavBarItem;
-
-

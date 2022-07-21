@@ -3,6 +3,7 @@ package com.commercewebsite.product;
 import com.commercewebsite.Authorization.Payload.Request.SignupRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -51,7 +52,8 @@ public class ProductController {
     public List<Product> Pagination(@RequestParam(name = "page") String page){
         return productService.findProductsWithPagination(Integer.parseInt(page));
     }
-    @GetMapping("/delete/{id}")
+    @PostMapping("/delete/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public void deleteProduct(@PathVariable Long id){
         productService.deleteProduct(id);
     }
@@ -60,10 +62,12 @@ public class ProductController {
         return productService.filter(type, gender,Integer.parseInt(offset), Integer.parseInt(size));
     }
     @PostMapping("/add")
+    @PreAuthorize("hasRole('ADMIN')")
     public void addProduct(@Valid @RequestBody AddRequest addRequest){
         productService.addProduct(addRequest);
     }
     @PostMapping("/update")
+    @PreAuthorize("hasRole('ADMIN')")
     public void updateProduct(@Valid @RequestBody AddRequest addRequest){
         productService.updateProduct(addRequest);
     }

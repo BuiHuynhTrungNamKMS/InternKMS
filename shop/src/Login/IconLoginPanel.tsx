@@ -1,5 +1,5 @@
-import { LoginIconData } from "../Data/Data";
-import LoginIcon from "./LoginIcon";
+import { LoginIconData } from '../constants';
+import LoginIcon from './LoginIcon';
 
 const IconLoginPanel: React.FC = () => {
   return (

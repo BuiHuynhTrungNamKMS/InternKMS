@@ -1,29 +1,32 @@
-import type { NextPage } from 'next'
-import HomePage from '../src/Home/HomePage'
-import Panel from '../src/Common/Panel'
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { Product } from '../src/Model/Module';
 import { GetServerSideProps } from 'next';
-import { ProductListProps } from '../src/Model/Module';
+
+import axios from 'axios';
+
+import Panel from '../src/Common/Panel';
+import HomePage from '../src/Home/HomePage';
+import { Product } from '../src/Model/Module';
+import { TrendingProductListProps } from '../src/Model/Module';
+
 export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await fetch('http://localhost:8080/api/product/trending?gender=male');
-  const products: Product[] = await res.json();
-  
-  const res2 = await fetch('http://localhost:8080/api/product/trending?gender=female');
-  const products2: Product[] = await res2.json();
+  const res = await axios.get('http://localhost:8080/api/product/trending?gender=male');
+  const trendingMaleProduct: Product[] = await res.data;
+
+  const res2 = await axios.get('http://localhost:8080/api/product/trending?gender=female');
+  const trendingFemaleProduct: Product[] = await res2.data;
+
   return {
     props: {
-      products, products2
-    },
+      trendingMaleProduct,
+      trendingFemaleProduct
+    }
   };
 };
 
-export default function Home({products, products2}: any) {
+export default function Home({ trendingMaleProduct, trendingFemaleProduct }: TrendingProductListProps) {
   return (
     <div className="mx-auto p-5 bg-gray-100">
       <Panel />
-      <HomePage maleProducts={products} femaleProducts={products2} />
+      <HomePage trendingMaleProduct={trendingMaleProduct} trendingFemaleProduct={trendingFemaleProduct} />
     </div>
-  )
+  );
 }

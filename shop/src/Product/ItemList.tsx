@@ -1,11 +1,12 @@
-import { ProductListProps } from '../Model/Module';
-import Item from './Item';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../store';
 import { useState } from 'react';
-import { Product } from '../Model/Module';
 import { useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { useSelector } from 'react-redux';
+
+import { RootState } from '../../store';
+import { ProductListProps } from '../Model/Module';
+import { Product } from '../Model/Module';
+import Item from './Item';
 
 const ItemList: React.FC<ProductListProps> = (props) => {
   const { products = [] } = props;
@@ -47,7 +48,7 @@ const ItemList: React.FC<ProductListProps> = (props) => {
     })
     
   }, [searchKey]);
-console.log("current " + currentFilterOption)
+
   const getMoreData = async () => {
     if (currentFilterOption === 0){
       

@@ -1,18 +1,15 @@
 import Dialog from '../Dialog/Dialog';
-import ItemList from '../Product/ItemList';
 import { TrendingProductListProps } from '../Model/Module';
-import Link from 'next/link';
 import TrendingProduct from './TrendingProduct';
+
 const HomePage: React.FC<TrendingProductListProps> = (props) => {
-  
-  const {maleProducts = []} = props;
-  const {femaleProducts = []} = props;
-  
+  const {trendingMaleProduct = [], trendingFemaleProduct = []} = props;
+
   return (
     <>
     <Dialog />
-    <TrendingProduct products={maleProducts} title={"Men Collection"} />
-    <TrendingProduct products={femaleProducts} title={"Women Collection"} /> 
+    <TrendingProduct products={trendingMaleProduct} title={"Men Collection"} />
+    <TrendingProduct products={trendingFemaleProduct} title={"Women Collection"} /> 
     
       <div className="rounded-lg shadow-lg my-20 flex flex-row">
         <div className="lg:w-3/5 w-full bg-gradient-to-r from-black to-purple-900 lg:from-black lg:via-purple-900 lg:to-transparent rounded-lg text-gray-100 p-12">

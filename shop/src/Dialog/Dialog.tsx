@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
-import { RootState } from '../../store';
 import { useSelector } from 'react-redux';
+
+import { RootState } from '../../store';
 import { dialogActions } from '../../store/dialogSlice';
 
 const Dialog: React.FC = () => {

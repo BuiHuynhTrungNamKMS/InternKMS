@@ -1,6 +1,6 @@
 import { loginIconProps } from '../Model/Module';
 
-const LoginIcon: React.FC<loginIconProps> = (props) => {
+const LoginIcon = ({viewBox, path}: loginIconProps) => {
   return (
     <button
       type="button"
@@ -10,12 +10,12 @@ const LoginIcon: React.FC<loginIconProps> = (props) => {
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        viewBox={props.viewBox}
+        viewBox={viewBox}
         className="w-4 h-4"
       >
         <path
           fill="currentColor"
-          d={props.path}
+          d={path}
         />
       </svg>
     </button>

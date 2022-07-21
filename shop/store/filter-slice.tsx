@@ -16,27 +16,27 @@ const filterSlice = createSlice({
       state.currentFilterOption = 1;
     },
     changeSearchKey(state, action) {
-        state.searchKey = action.payload;
-        state.currentFilterOption = 2;
-      },
+      state.searchKey = action.payload;
+      state.currentFilterOption = 2;
+    },
     changeSortOption(state, action) {
-        state.sortOption = action.payload;
-      },
+      state.sortOption = action.payload;
+    },
     changeGender(state, action) {
-      if(action.payload === "Men")  state.gender = "male";
-      else if (action.payload === "Women") state.gender = "female";
-      else state.gender = "all";
+      if (action.payload === 'Men') state.gender = 'male';
+      else if (action.payload === 'Women') state.gender = 'female';
+      else state.gender = 'all';
       state.currentFilterOption = 1;
-      },
+    },
     refreshFilter(state) {
-      state.filter = "all";
+      state.filter = 'all';
       state.isChange = false;
       state.searchKey = '';
       state.sortOption = -1;
       state.gender = 'all';
       state.currentFilterOption = 0;
-      },
-  },
+    }
+  }
 });
 
 export const filterActions = filterSlice.actions;

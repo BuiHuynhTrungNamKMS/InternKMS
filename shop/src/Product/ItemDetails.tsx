@@ -1,9 +1,11 @@
-import { DetailProductProps } from '../Model/Module';
-import { useDispatch } from 'react-redux';
-import { cartActions } from '../../store/cart-slice';
-import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
+
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+
 import { RootState } from '../../store';
+import { cartActions } from '../../store/cart-slice';
+import { DetailProductProps } from '../Model/Module';
 
 const ItemDetails: React.FC<DetailProductProps> = (props) => {
   const { product } = props;

@@ -19,7 +19,6 @@ export interface Product{
     gender: string;
     image: string;
     status: string;
-    items: any[];
 }
 export interface ProductListProps{
     products: Product[];
@@ -30,8 +29,8 @@ export interface TrendingProductProps{
   title: string;
 }
 export interface TrendingProductListProps{
-  maleProducts: Product[];
-  femaleProducts: Product[];
+  trendingMaleProduct: Product[];
+  trendingFemaleProduct: Product[];
 }
 
 export interface DetailProductProps{

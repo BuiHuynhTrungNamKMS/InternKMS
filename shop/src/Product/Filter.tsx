@@ -1,35 +1,24 @@
-import { useDispatch, useSelector } from "react-redux";
-import { filterActions } from "../../store/filter-slice";
-import { Fragment, useState } from 'react'
-import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
-import { XIcon } from '@heroicons/react/outline'
-import { ChevronDownIcon, FilterIcon, MinusSmIcon, PlusSmIcon, ViewGridIcon } from '@heroicons/react/solid'
-import { ProductListProps } from "../Model/Module";
-import ItemList from "./ItemList";
-import { Product } from "../Model/Module";
-const sortOptions = [
-  { name: 'Price: Low to High', current: false},
-  { name: 'Price: High to Low', current: false},
-]
-const subCategories = [
-  { name: 'Men', checked: false},
-  { name: 'Women', checked: false},
-  { name: 'All', checked: false},
-]
-const filters = [
-  {
-    id: 'category',
-    name: 'Category',
-    options: [
-      { value: 'Shirt', label: 'T-Shirt', checked: false },
-      { value: 'Jean', label: 'Jean', checked: false },
-      { value: 'Dress', label: 'Dress', checked: false },
-      { value: 'Accessory', label: 'Accessory', checked: false },
-    ],
-  }
-]
-function classNames(...classes: any[]) {
-  return classes.filter(Boolean).join(' ')
+import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react';
+import { XIcon } from '@heroicons/react/outline';
+import {
+  ChevronDownIcon,
+  FilterIcon,
+  MinusSmIcon,
+  PlusSmIcon,
+  ViewGridIcon
+} from '@heroicons/react/solid';
+import { Fragment, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { filterActions } from '../../store/filter-slice';
+import { ProductListProps } from '../Model/Module';
+import { Product } from '../Model/Module';
+import ItemList from './ItemList';
+import {sortOptions, filters, subCategories} from '../constants/index'
+
+
+function classNames(...classenames: any[]) {
+  return classenames.filter(Boolean).join(' ')
 }
 const Filter: React.FC<ProductListProps> = (props) => {
   const { products = [] } = props;
@@ -37,9 +26,8 @@ const Filter: React.FC<ProductListProps> = (props) => {
   const [finalData, setFinalData] = useState<Product[]>(products)
   const dispatch = useDispatch()
   const inputHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const option = event.target.value;
-    console.log(option)
-    dispatch(filterActions.changeFilter(option))
+    const {target: {value = ""}} = event;
+    dispatch(filterActions.changeFilter(value))
   };
 
   const searchHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {

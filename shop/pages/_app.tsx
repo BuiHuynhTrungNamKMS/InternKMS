@@ -1,10 +1,12 @@
-import '../styles/globals.css';
 import type { AppProps } from 'next/app';
-import NavBar from '../src/Common/NavBar';
-import Footer from '../src/Common/Footer';
-import { wrapper } from '../store';
+
 import { useSelector } from 'react-redux';
+
+import Footer from '../src/Common/Footer';
+import NavBar from '../src/Common/NavBar';
+import { wrapper } from '../store';
 import { RootState } from '../store';
+import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const isLoggedIn = useSelector(

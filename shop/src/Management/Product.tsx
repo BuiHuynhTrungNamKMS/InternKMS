@@ -1,17 +1,32 @@
-import { ItemProps } from '../Model/Module';
-import { DetailProductProps } from '../Model/Module'
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+
 import { useDispatch } from 'react-redux';
+
+import { useSelector } from 'react-redux';
+
 import { dialogActions } from '../../store/dialogSlice';
 import Dialog from '../Dialog/Dialog';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
+import { DetailProductProps } from '../Model/Module';
+import { RootState } from '../../store';
+
 const Product: React.FC<DetailProductProps> = (props) => {
   const { product } = props;
   const dispatch = useDispatch();
   const router = useRouter();
+
+  const accessToken: string = useSelector((state: RootState) => state.authSlice.accessToken);
+  const tokenType: string = useSelector((state: RootState) => state.authSlice.tokenType);
+
   const deleteHandler = async (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    fetch(`http://localhost:8080/api/product/delete/${product.id}`)
+    fetch(`http://localhost:8080/api/product/delete/${product.id}`,{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: tokenType + ' ' + accessToken,
+      },
+    })
     .then((response) => {
       if (!response.ok) throw new Error("Can not delete product");
       else {
@@ -21,7 +36,7 @@ const Product: React.FC<DetailProductProps> = (props) => {
       }
     })
     .catch((error) => {
-      dispatch(dialogActions.changeMessage("Incorrect username or password"))
+      dispatch(dialogActions.changeMessage(error.message))
       dispatch(dialogActions.changeShow(true))
     });
   };

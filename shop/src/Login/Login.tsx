@@ -1,13 +1,15 @@
-import { useDispatch } from 'react-redux';
-import { authActions } from '../../store/auth-slice';
-import { useState } from 'react';
-import { RootState } from '../../store';
-import { useSelector } from 'react-redux';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
-import Dialog from '../Dialog/Dialog';
-import { dialogActions } from '../../store/dialogSlice';
+import { useRouter } from 'next/router';
+
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+
 import AuthService from '../../services/AuthService';
+import { RootState } from '../../store';
+import { authActions } from '../../store/auth-slice';
+import { dialogActions } from '../../store/dialogSlice';
+import Dialog from '../Dialog/Dialog';
 import IconLoginPanel from './IconLoginPanel';
 
 const Login: React.FC = () => {
@@ -20,12 +22,12 @@ const Login: React.FC = () => {
   const tokenType = useSelector((state: RootState) => state.authSlice.tokenType);
 
   const getUsername = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const username = event.target.value;
-    setUsername(username);
+    const {target: {value = ""}} = event;
+    setUsername(value);
   };
   const getPassword = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const password = event.target.value;
-    setPassword(password);
+    const {target: {value = ""}} = event;
+    setPassword(value);
   };
   
   const submitForm = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -50,7 +52,7 @@ const Login: React.FC = () => {
         else router.push("/")
       })
       .catch((error) => {
-        dispatch(dialogActions.changeMessage("Incorrect username or password"))
+        dispatch(dialogActions.changeMessage(error.message))
         dispatch(dialogActions.changeShow(true))
       });
   };

@@ -1,13 +1,13 @@
-import { ItemProps } from '../Model/Module';
 import Image from 'next/image';
-import { ColorOptionData } from '../Data/Data'
-import { Product } from '../Model/Module';
-
 import Link from 'next/link';
-import { useDispatch, useSelector } from 'react-redux';
-import { cartActions } from '../../store/cart-slice';
-import { RootState } from '../../store';
 import { useRouter } from 'next/router';
+
+import { useDispatch, useSelector } from 'react-redux';
+
+import { RootState } from '../../store';
+import { cartActions } from '../../store/cart-slice';
+import { ColorOptionData } from '../constants';
+import { Product } from '../Model/Module';
 import ColorOption from './ColorOption';
 
 const Item: React.FC<{product: Product}> = (props) => {
@@ -16,6 +16,12 @@ const Item: React.FC<{product: Product}> = (props) => {
   const isLoggedIn = useSelector(
     (state: RootState) => state.authSlice.isLoggedIn
   );
+
+  const loginRedirect = () => {
+    if (isLoggedIn === true){
+      dispatch(cartActions.addToCart(product));
+    }else router.push('/login');
+  }
   const dispatch = useDispatch();
   return (
     <div className="shadow-xl rounded-lg">
@@ -40,12 +46,7 @@ const Item: React.FC<{product: Product}> = (props) => {
           <div>
             <a className="bg-[#558D97] rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600 flex flex-row justify-center"
               href="#"
-              onClick={() => {
-                if (isLoggedIn === true)
-                  dispatch(cartActions.addToCart(product));
-                else router.push('/login');
-              }}
-            >
+              onClick={loginRedirect}>
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>

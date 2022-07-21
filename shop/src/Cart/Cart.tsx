@@ -1,21 +1,16 @@
-import { Fragment } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Dialog, Transition } from '@headlessui/react';
 import { XIcon } from '@heroicons/react/outline';
+import { Fragment } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { RootState } from '../../store';
 import { cartActions } from '../../store/cart-slice';
 import { CartProduct } from '../Model/Module';
 
 const Cart: React.FC = () => {
-  const showCart: boolean = useSelector(
-    (state: RootState) => state.cartSlice.showCart
-  );
-  const products: CartProduct[] = useSelector(
-    (state: RootState) => state.cartSlice.itemsList
-  );
-  const total: number = useSelector(
-    (state: RootState) => state.cartSlice.totalPrice
-  );
+  const showCart: boolean = useSelector((state: RootState) => state.cartSlice.showCart);
+  const products: CartProduct[] = useSelector((state: RootState) => state.cartSlice.itemsList);
+  const total: number = useSelector((state: RootState) => state.cartSlice.totalPrice);
   const dispatch = useDispatch();
 
   return (

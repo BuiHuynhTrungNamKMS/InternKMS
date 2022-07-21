@@ -2,6 +2,10 @@ package com.commercewebsite.Whistlist;
 
 import com.commercewebsite.Item.Item;
 import com.commercewebsite.user.User;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -9,6 +13,10 @@ import java.util.Set;
 
 @Entity
 @Table
+@NoArgsConstructor
+@Setter
+@Getter
+@ToString
 public class Whistlist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,8 +33,7 @@ public class Whistlist {
         this.items = items;
     }
 
-    public Whistlist() {
-    }
+
 
     public Whistlist(User user) {
         this.user = user;
@@ -37,28 +44,5 @@ public class Whistlist {
         this.items = items;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    @Override
-    public String toString() {
-        return "Whistlist{" +
-                "id=" + id +
-                ", items=" + items +
-                '}';
-    }
-
-    public void setItems(Set<Item> items) {
-        this.items = items;
-    }
-
-    public Set<Item> getItems() {
-        return items;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
 }

@@ -1,12 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { AuthState } from "../src/Model/Module";
+import { createSlice } from '@reduxjs/toolkit';
+
+import { AuthState } from '../src/Model/Module';
 
 const authSlice = createSlice({
-  name: "auth",
-  initialState: { 
+  name: 'auth',
+  initialState: {
     isLoggedIn: false,
-    accessToken: "",
-    tokenType: "",
+    accessToken: '',
+    tokenType: ''
   } as AuthState,
   reducers: {
     login(state, action) {
@@ -16,11 +17,10 @@ const authSlice = createSlice({
     },
     logout(state) {
       state.isLoggedIn = false;
-      state.accessToken = "";
-      state.tokenType = "";
-    },
-    
-  },
+      state.accessToken = '';
+      state.tokenType = '';
+    }
+  }
 });
 
 export const authActions = authSlice.actions;

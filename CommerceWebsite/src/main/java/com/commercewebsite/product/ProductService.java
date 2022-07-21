@@ -90,6 +90,7 @@ public class ProductService {
         product.setImage(addRequest.getImage());
         product.setGender(addRequest.getGender());
         product.setUpdateAt(currentDate);
+        product.setStatus(addRequest.getStatus());
 
         productRepository.save(product);
     }

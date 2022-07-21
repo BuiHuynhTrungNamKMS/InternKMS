@@ -1,10 +1,12 @@
-import { MenuItemProps } from '../Model/Module';
 import Link from 'next/link';
-const FooterItem: React.FC<MenuItemProps> = (props) => {
+
+import { MenuItemProps } from '../Model/Module';
+
+const FooterItem = ({ link, name }: MenuItemProps) => {
   return (
-    <Link href={props.link}>
+    <Link href={link}>
       <li>
-        <button className="hover:text-gray-800">{props.name}</button>
+        <button className="hover:text-gray-800">{name}</button>
       </li>
     </Link>
   );

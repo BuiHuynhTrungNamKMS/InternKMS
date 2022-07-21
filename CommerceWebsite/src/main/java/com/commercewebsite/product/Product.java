@@ -1,10 +1,7 @@
 package com.commercewebsite.product;
 
 import com.commercewebsite.Item.Item;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.apache.tomcat.jni.Local;
 
 import javax.persistence.*;
@@ -14,11 +11,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table
+@Table(indexes = @Index(name = "idx_name_gender",columnList = "name, gender"))
 @Builder
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class Product {
     @Id
     @SequenceGenerator(
@@ -80,109 +79,5 @@ public class Product {
         this.image = image;
         this.gender = gender;
         this.status = status;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public Integer getPrice() {
-        return price;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public String getDescribe() {
-        return describe;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public Set<Item> getItems() {
-        return items;
-    }
-
-    public LocalDateTime getCreateAt() {
-        return createAt;
-    }
-
-    public LocalDateTime getDeleteAt() {
-        return deleteAt;
-    }
-
-    public LocalDateTime getUpdateAt() {
-        return updateAt;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public void setPrice(Integer price) {
-        this.price = price;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public void setDescribe(String describe) {
-        this.describe = describe;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public void setItems(Set<Item> items) {
-        this.items = items;
-    }
-
-    public void setCreateAt(LocalDateTime createAt) {
-        this.createAt = createAt;
-    }
-
-    public void setDeleteAt(LocalDateTime deleteAt) {
-        this.deleteAt = deleteAt;
-    }
-
-    public void setUpdateAt(LocalDateTime updateAt) {
-        this.updateAt = updateAt;
     }
 }

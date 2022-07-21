@@ -1,5 +1,5 @@
 //import Cookie from "universal-cookie";
-import Cookies from 'js-cookie'
+import Cookies from 'js-cookie';
 
 class CookieService {
   get(key: string) {

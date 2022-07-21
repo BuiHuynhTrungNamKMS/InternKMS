@@ -1,8 +1,10 @@
-import { useDispatch } from 'react-redux';
-import { useState } from 'react';
 import { useRouter } from 'next/router';
-import Dialog from '../Dialog/Dialog'
+
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
 import { dialogActions } from '../../store/dialogSlice';
+import Dialog from '../Dialog/Dialog';
 import IconRegisterPanel from './IconRegisterPanel';
 
 const Register: React.FC = () => {
@@ -14,18 +16,18 @@ const Register: React.FC = () => {
   const dispatch = useDispatch();
 
   const getUsername = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const username = event.target.value;
-    setUsername(username);
+    const {target: {value = ""}} = event;
+    setUsername(value);
   };
 
   const getEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const email = event.target.value;
-    setEmail(email);
+    const {target: {value = ""}} = event;
+    setEmail(value);
   };
 
   const getPassword = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const password = event.target.value;
-    setPassword(password);
+    const {target: {value = ""}} = event;
+    setPassword(value);
   };
   
   const submitForm = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -50,7 +52,7 @@ const Register: React.FC = () => {
         router.push('/login');
       })
       .catch((error) => {
-        dispatch(dialogActions.changeMessage('Email or Username is already exist'))
+        dispatch(dialogActions.changeMessage(error.message))
         dispatch(dialogActions.changeShow(true))
       });
   };

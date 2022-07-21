@@ -1,18 +1,18 @@
-import { RootState } from "../../store";
-import { useSelector } from "react-redux";
-import { tokenData } from "../Model/Module";
-import jwt_decode  from "jwt-decode";
+import jwt_decode from 'jwt-decode';
+import { useSelector } from 'react-redux';
+
+import { RootState } from '../../store';
+import { tokenData } from '../Model/Module';
+
 const Panel: React.FC = () => {
   let name: string = "";
   const token: string = useSelector((state: RootState) => state.authSlice.accessToken);
   const isLoggedIn = useSelector((state: RootState) => state.authSlice.isLoggedIn);
-  console.log(isLoggedIn)
+
   if(isLoggedIn){
     const data: tokenData = jwt_decode(token)
     name = data.sub
   }
-  // const data: tokenData = useSelector((state: RootState) => jwt_decode(state.authSlice.accessToken));
-
   name = "Hello " + name;
 
   return (

@@ -1,5 +1,5 @@
-import Register from "../src/Register/Register"
+import Register from '../src/Register/Register';
 
 export default function login() {
-    return <Register />
-  }
+  return <Register />;
+}

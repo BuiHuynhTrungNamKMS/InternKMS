@@ -1,4 +1,4 @@
-import CookieService from "./CookieService";
+import CookieService from './CookieService';
 
 const expiresAt = 60 * 24;
 
@@ -9,9 +9,8 @@ interface Credentials {
 
 class AuthService {
   handleLoginSuccess(response: any) {
-
-    const options = { path: "/"};
-    CookieService.set("accessToken", response.accessToken, options);
+    const options = { path: '/' };
+    CookieService.set('accessToken', response.accessToken, options);
     return true;
 
     // let date = new Date();

@@ -1,23 +1,27 @@
 import Link from 'next/link';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../store';
-import { cartActions } from '../../store/cart-slice';
-import Cart from '../Cart/Cart';
 import { useRouter } from 'next/router';
-import { authActions } from '../../store/auth-slice';
-import { dialogActions } from '../../store/dialogSlice';
-import CookieService from '../../services/CookieService';
+
 import jwt_decode from 'jwt-decode';
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import CookieService from '../../services/CookieService';
+import { RootState } from '../../store';
+import { authActions } from '../../store/auth-slice';
+import { cartActions } from '../../store/cart-slice';
+import { dialogActions } from '../../store/dialogSlice';
+import Cart from '../Cart/Cart';
+import { NavBarData } from '../constants';
 import { AuthState } from '../Model/Module';
-import { NavBarData } from '../Data/Data';
+import { tokenData } from '../Model/Module';
 import NavBarItem from './NavBarItem';
 
 const NavBar: React.FC = () => {
   const quantity: number = useSelector((state: RootState) => state.cartSlice.totalQuantity);
-  const isLoggedIn = useSelector((state: RootState) => state.authSlice.isLoggedIn);
-  const accessToken = useSelector((state: RootState) => state.authSlice.accessToken);
-  const tokenType = useSelector((state: RootState) => state.authSlice.tokenType);
+  const isLoggedIn: boolean = useSelector((state: RootState) => state.authSlice.isLoggedIn);
+  const accessToken: string = useSelector((state: RootState) => state.authSlice.accessToken);
+  const tokenType: string = useSelector((state: RootState) => state.authSlice.tokenType);
+  const [visible, setVisible] = useState(false);
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -26,6 +30,14 @@ const NavBar: React.FC = () => {
     token = CookieService.get('accessToken') as string;
     if(token) dispatch(authActions.login({isLoggedIn: true, accessToken: token, tokenType: "Bearer"} as AuthState));
   },[])
+
+  useEffect(()=>{
+    if(isLoggedIn){
+      const data: tokenData = jwt_decode(accessToken)
+      if(data.sub === 'admin')  setVisible(true);
+      else setVisible(false)
+    }else setVisible(false)
+  }, [isLoggedIn])
 
   const loginRouteHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -58,7 +70,7 @@ const NavBar: React.FC = () => {
         router.push('/product_management');
       })
       .catch((error) => {
-        dispatch(dialogActions.changeMessage("Don't have permission!"));
+        dispatch(dialogActions.changeMessage(error.message));
         dispatch(dialogActions.changeShow(true));
       });
   };
@@ -88,9 +100,9 @@ const NavBar: React.FC = () => {
           </div>
           <div className="md:flex items-center">
             <div className="flex flex-col md:flex-row md:mx-6">
-              <button onClick={accessAdminPage} className="my-1 text-base text-white font-medium hover:text-indigo-500 md:mx-4 md:my-0 text-teal-200 hover:text-white mr-4">
+              {visible && <button onClick={accessAdminPage} className="my-1 text-base text-white font-medium hover:text-indigo-500 md:mx-4 md:my-0 text-teal-200 hover:text-white mr-4">
                 Products Management
-              </button>
+              </button>}
               <button onClick={loginRouteHandler} className="my-1 text-base text-white font-medium hover:text-indigo-500 md:mx-4 md:my-0 text-teal-200 hover:text-white mr-4" >
                 {isLoggedIn ? "Logout" : "Login"}
               </button>

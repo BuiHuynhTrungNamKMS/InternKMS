@@ -2,11 +2,19 @@ package com.commercewebsite.Item;
 
 import com.commercewebsite.Whistlist.Whistlist;
 import com.commercewebsite.product.Product;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
 @Entity
 @Table(indexes = @Index(name = "idx_whistlist_product",columnList = "whistlist_id, product_id"))
+@Setter
+@Getter
+@ToString
+@NoArgsConstructor
 public class Item {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,35 +42,4 @@ public class Item {
                 this.quantity = quantity;
         }
 
-        public Item() {
-        }
-
-        public void setProduct(Product product) {
-                this.product = product;
-        }
-
-        public Long getId() {
-                return id;
-        }
-
-        public void setWhistlist(Whistlist whistlist) {
-                this.whistlist = whistlist;
-        }
-
-        public void setQuantity(Integer quantity) {
-                this.quantity = quantity;
-        }
-
-        public void setId(Long id) {
-                this.id = id;
-        }
-
-        @Override
-        public String toString() {
-                return "Item{" +
-                        "id=" + id +
-                        ", whistlist=" + whistlist +
-                        ", quantity=" + quantity +
-                        '}';
-        }
 }

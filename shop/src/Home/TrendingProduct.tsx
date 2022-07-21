@@ -1,6 +1,8 @@
-import { TrendingProductProps } from "../Model/Module";
-import ItemList from "../Product/ItemList";
-import Link from "next/link";
+import Link from 'next/link';
+
+import { TrendingProductProps } from '../Model/Module';
+import ItemList from '../Product/ItemList';
+
 const TrendingProduct: React.FC<TrendingProductProps> = (props) => {
   return (
     <div className="my-20 font-serif text-white container mx-auto p-5 bg-gray-300 rounded-lg">

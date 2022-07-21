@@ -1,5 +1,5 @@
-import { FooterData } from "../Data/Data";
-import FooterItem from "./FooterItem";
+import { FooterData } from '../constants';
+import FooterItem from './FooterItem';
 
 const Footer: React.FC = () => {
   return (

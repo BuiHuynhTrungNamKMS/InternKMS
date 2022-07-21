@@ -1,19 +1,15 @@
-import ColumnHeader from "./ColumnHeader";
+import ColumnHeader from './ColumnHeader';
+import { titleColumn } from '../constants';
+
 const TableHeader: React.FC = () => {
-    return (
-        <thead>
-        <tr>
-          <ColumnHeader title="ID" />
-          <ColumnHeader title="Name" />
-          <ColumnHeader title="Gender" />
-          <ColumnHeader title="Color" />
-          <ColumnHeader title="Price" />
-          <ColumnHeader title="Type" />
-          <ColumnHeader title="" />
-          <ColumnHeader title="" />
-        </tr>
-      </thead>
-    );
-  };
-  export default TableHeader;
-  
+  return (
+      <thead>
+      <tr>
+        {
+          titleColumn.map((item)=> <ColumnHeader key={item.id} title={item.title} />)
+        }
+      </tr>
+    </thead>
+  );
+};
+export default TableHeader;
